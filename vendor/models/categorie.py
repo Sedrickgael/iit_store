@@ -1,0 +1,29 @@
+from django.db import models
+from django.utils.translation import gettext_lazy as _
+from base.utils.models.standard_model import StandardModel
+from django.utils.text import slugify
+
+
+class Categorie(StandardModel):
+
+    """
+        Modele catégorie
+    """
+
+    name = models.CharField(max_length=20, verbose_name=_("Nom"))
+    description = models.TextField(verbose_name=_("Description"))
+    slug = models.SlugField("slug" , blank=True)
+
+    class Meta:
+        verbose_name = "Categorie"
+        verbose_name_plural = "Categories"
+
+    def __str__(self):
+        return self.name
+    
+    from django.utils.text import slugify
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)  
+        super().save(*args, **kwargs)
