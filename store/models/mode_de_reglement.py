@@ -1,5 +1,4 @@
 from django.db import models
-from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 from base.utils.models.standard_model import StandardModel
 
@@ -22,12 +21,6 @@ class ModeDeReglement(StandardModel):
     name = models.CharField(max_length=100, verbose_name=_("Nom"))
     type = models.CharField(max_length=20, choices=TypeChoices.choices, verbose_name=_("Type de paiement"))
     is_active = models.BooleanField(default=True, verbose_name=_("Actif"))
-    slug = models.SlugField("Slug", blank=True)
 
     def __str__(self):
         return self.name
-
-    def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(self.name)
-        super().save(*args, **kwargs)

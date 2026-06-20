@@ -1,6 +1,7 @@
 from django.db import models
 from base.utils.models import ProfilBase
-from .profil import Profil
+from cities_light.models import City, Country
+from django.utils.translation import gettext_lazy as _
 
 
 class Adresse(ProfilBase):
@@ -10,11 +11,11 @@ class Adresse(ProfilBase):
         ('autre', 'Autre'),
     ]
 
-    profil = models.ForeignKey(Profil, on_delete=models.CASCADE, related_name='adress_user')
-    type = models.CharField(max_length=20, choices=TYPE_CHOICES, default='domicile')
-    street = models.CharField(max_length=255)
-    city = models.CharField(max_length=100)
-    country = models.CharField(max_length=100, default='Côte d\'Ivoire')
+    profil = models.ForeignKey('customer.Profil', on_delete=models.CASCADE, related_name='adress_user',verbose_name=_("Profil Utilisateur"))
+    type = models.CharField(max_length=20, choices=TYPE_CHOICES, default='domicile', verbose_name=_("Type d'adresse"))
+    street = models.CharField(max_length=255, verbose_name=_("Rue"))
+    country = models.ForeignKey( Country, on_delete=models.SET_NULL, null=True, blank=True, verbose_name=_("Pays"), default='Côte d\'Ivoire',max_length=100)
+    city = models.ForeignKey(City, on_delete=models.SET_NULL, null=True, blank=True, verbose_name=_("Ville"), max_length=100)
     is_default = models.BooleanField(default=False)
 
     class Meta:

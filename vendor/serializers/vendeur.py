@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from vendor.models.vendeur import Vendeur
+from iit_store.vendor.models.boutique import Vendeur
 
 
 class VendeurSerializer(serializers.ModelSerializer):

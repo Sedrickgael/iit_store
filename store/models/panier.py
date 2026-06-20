@@ -1,8 +1,9 @@
 # panier.py
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from django.utils.text import slugify
 from base.utils.models.standard_model import StandardModel
+from django.contrib.sessions.models import Session
+from store.models.ligne_panier import PanierItem
 import uuid
 
 
@@ -10,31 +11,21 @@ class Panier(StandardModel):
     """
     Modele panier
     """
-
     class Meta:
         verbose_name  = "Article du panier"
         verbose_name_plural = "Articles du panier"
         unique_together = ("session_key", "product_id")
-
-    slug = models.SlugField("Slug", blank=True)
     
-    session_key = models.CharField( max_length=100, verbose_name=_("Clé de session"), blank=True)
-
-    product_id = models.ForeignKey("vendor.Produit", on_delete=models.CASCADE, related_name="articles_panier", verbose_name=_("Produit"))
-
-    quantity = models.PositiveIntegerField(default=1, verbose_name=_("Quantité"))
+    profil = models.ForeignKey('customer.Profil', on_delete=models.CASCADE, related_name='adress_user',verbose_name=_("Profil Utilisateur"), null=True, blank=True)
+    session_key = models.ForeignKey(Session, verbose_name=_("Clé de session"), blank=True, null=True, on_delete=models.CASCADE)
 
     @property
-    def sub_total(self):
-        return self.quantity * self.product.price
+    def total(self):
+        items = PanierItem.objects.filter(cart=self.id)
+        total = 0
+        for item in items:
+            total += item.sub_total()
+        return total 
 
-    def __str__(self):
-        return f"{self.quantity}x {self.product_id} — {self.session_key}"
-    
-    def save(self, *args, **kwargs):
-        if not self.session_key:
-            self.session_key = uuid.uuid4().hex
-        if not self.slug:
-            self.slug = slugify(f"panier-{self.session_key[:8]}")
-        super().save(*args, **kwargs)
+ 
     
