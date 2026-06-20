@@ -1,36 +1,37 @@
+   
 {% load static %}
 <!doctype html>
 <html class="no-js" lang="en">
 
+
+<!-- Mirrored from new.axilthemes.com/demo/template/blogar/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 10 Nov 2025 12:34:22 GMT -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    {%  block title %}
-        <title>Home Default || Blogar - Personal Blog Template</title>
-    {%  endblock %}
+    {% block  title %}
+    <title>Home Default || Blogar - Personal Blog Template</title>
+    {% endblock  %} 
 
     <meta name="robots" content="noindex, follow" />
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/images/favicon.png' %}">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png' %}">
 
     <!-- CSS
     ============================================ -->
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="{% static 'assets/css/vendor/bootstrap.min.css'%}">
+<link rel="stylesheet" href="{% static 'assets/css/vendor/font-awesome.css'%}">
+<link rel="stylesheet" href="{% static 'assets/css/vendor/slick.css'%}">
+<link rel="stylesheet" href="{% static 'assets/css/vendor/slick-theme.css'%}">
+<link rel="stylesheet" href="{% static 'assets/css/vendor/base.css' %}">
+<link rel="stylesheet" href="{% static 'assets/css/plugins/plugins.css'%}">
+<link rel="stylesheet" href="{% static 'assets/css/style.css'%}">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{% static 'assets/css/vendor/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/vendor/font-awesome.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/vendor/slick.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/vendor/slick-theme.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/vendor/base.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/plugins/plugins.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
-
-    {% block css %}
-    {% endblock %}
-
+{% block css%}
+{% endblock css%}
 </head>
 
 <body>
@@ -60,8 +61,8 @@
                     <div class="col-xl-3 col-lg-3 col-md-4 col-sm-3 col-12">
                         <div class="logo">
                             <a href="{% url 'home_blog' %}">
-                                <img class="dark-logo" src="{% static 'assets/images/logo/logo-black.png' %}" alt="Blogar logo">
-                                <img class="light-logo" src="{% static 'assets/images/logo/logo-white2.png' %}" alt="Blogar logo">
+                                <img class="dark-logo" src="{% static 'assets/images/logo/logo-black.png'%}" alt="Blogar logo">
+                                <img class="light-logo" src="{% static 'assets/images/logo/logo-white2.png'%}" alt="Blogar logo">
                             </a>
                         </div>
                     </div>
@@ -69,17 +70,15 @@
                     <div class="col-xl-6 d-none d-xl-block">
                         <div class="mainmenu-wrapper">
                             <nav class="mainmenu-nav">
-                                <!-- Start Mainmenu Nav -->
+                                <!-- Start Mainmanu Nav -->
                                 <ul class="mainmenu">
-                                    <li><a href="{% url 'home_blog' %}">Home</a></li>
-
-                                    <li><a href="{% url 'blog_list' %}">Posts</a></li>
-
-                                    <li><a href="home-lifestyle-blog.html">Lifestyle</a></li>
-
+                                    <li><a href="{% url 'home_blog' %}">Home</a>
+                                       
+                                    <li><a href="{% url 'blog_list' %}">Posts</a>
+                                    <li><a href="">Lifestyle</a></li>
                                     <li><a href="{% url 'contact' %}">Contacts</a></li>
                                 </ul>
-                                <!-- End Mainmenu Nav -->
+                                <!-- End Mainmanu Nav -->
                             </nav>
                         </div>
                     </div>
@@ -87,7 +86,7 @@
                     <div class="col-xl-3 col-lg-8 col-md-8 col-sm-9 col-12">
                         <div class="header-search text-end d-flex align-items-center">
                             {% if not user.is_authenticated %}
-                            <a class="btn btn-success" href="#">Se connecter</a>
+                            <a href="#" class="btn btn-success ms-n1">connexion</a>
                             {% endif %}
                             <form class="header-search-form d-sm-block d-none">
                                 <div class="axil-search form-group">
@@ -104,7 +103,6 @@
                                     </div>
                                 </form>
                             </div>
-
                             {% if user.is_authenticated %}
                             <ul class="metabar-block">
                                 <li class="icon"><a href="#"><i class="fas fa-bookmark"></i></a></li>
@@ -118,9 +116,8 @@
                                 </div>
                             </div>
                             <!-- End Hamburger Menu  -->
-
-                            {% endif %}
-                            
+                             {% endif %}
+                          
                         </div>
                     </div>
                 </div>
@@ -134,8 +131,8 @@
                 <div class="mobile-menu-top">
                     <div class="logo">
                         <a href="{% url 'home_blog' %}">
-                            <img class="dark-logo" src="{% static 'assets/images/logo/logo-black.png' %}" alt="Logo Images">
-                            <img class="light-logo" src="{% static 'assets/images/logo/logo-white2.png' %}" alt="Logo Images">
+                            <img class="dark-logo" src="{% static 'assets/images/logo/logo-black.pgn' %}" alt="Logo Images">
+                            <img class="light-logo" src="{% static 'assets/images/logo/logo-white2.pgn' %}" alt="Logo Images">
                         </a>
                     </div>
                     <div class="mobile-close">
@@ -145,8 +142,10 @@
                     </div>
                 </div>
                 <ul class="mainmenu">
-                    <li><a href="{% url 'home_blog' %}">Home</a></li>
-                    <li><a href="{% url 'blog_list' %}">Posts</a></li>
+                    <li><a href="{% url 'home_blog' %}">Home</a>
+                    </li>
+                    <li><a href="{% url 'blog_list' %}">Posts</a>
+                    </li>
                     <li><a href="404.html">404 Page</a></li>
                     <li><a href="{% url 'contact' %}">Contacts</a></li>
                 </ul>
@@ -158,68 +157,11 @@
         <!-- End Mobile Menu Area  -->
 
         {% block content %}
-
-        {% endblock %}
-
-        <!-- Start Instagram Area  -->
-        <div class="axil-instagram-area axil-section-gap bg-color-grey">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="section-title">
-                            <h2 class="title">Instagram</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mt--30">
-                    <div class="col-lg-12">
-                        <ul class="instagram-post-list">
-                            <li class="single-post">
-                                <a href="#">
-                                    <img src="{% static 'assets/images/small-images/instagram-md-01.jpg' %}" alt="Instagram Images">
-                                    <span class="instagram-button"><i class="fab fa-instagram"></i></span>
-                                </a>
-                            </li>
-                            <li class="single-post">
-                                <a href="#">
-                                    <img src="{% static 'assets/images/small-images/instagram-md-02.jpg' %}" alt="Instagram Images">
-                                    <span class="instagram-button"><i class="fab fa-instagram"></i></span>
-                                </a>
-                            </li>
-                            <li class="single-post">
-                                <a href="#">
-                                    <img src="{% static 'assets/images/small-images/instagram-md-03.jpg' %}" alt="Instagram Images">
-                                    <span class="instagram-button"><i class="fab fa-instagram"></i></span>
-                                </a>
-                            </li>
-                            <li class="single-post">
-                                <a href="#">
-                                    <img src="{% static 'assets/images/small-images/instagram-md-04.jpg' %}" alt="Instagram Images">
-                                    <span class="instagram-button"><i class="fab fa-instagram"></i></span>
-                                </a>
-                            </li>
-                            <li class="single-post">
-                                <a href="#">
-                                    <img src="{% static 'assets/images/small-images/instagram-md-05.jpg' %}" alt="Instagram Images">
-                                    <span class="instagram-button"><i class="fab fa-instagram"></i></span>
-                                </a>
-                            </li>
-                            <li class="single-post">
-                                <a href="#">
-                                    <img src="{% static 'assets/images/small-images/instagram-md-06.jpg' %}" alt="Instagram Images">
-                                    <span class="instagram-button"><i class="fab fa-instagram"></i></span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Instagram Area  -->
-
-        <!-- Start Footer Area  -->
+        {% endblock content %}
+   
+   <!-- Start Footer Area  -->
         <div class="axil-footer-area axil-footer-style-1 footer-variation-2">
-    
+          
             <!-- Start Footer Top Area  -->
             <div class="footer-top">
                 <div class="container">
@@ -332,11 +274,8 @@
 
     <!-- Main JS -->
     <script src="{% static 'assets/js/main.js' %}"></script>
-
     {% block js %}
-    {% endblock %}
+    {% endblock js %}
 
 </body>
-
-
 </html>

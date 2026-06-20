@@ -1,13 +1,14 @@
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
-from store.viewsets import CartViewSet, CartItemViewSet, DeliveryViewSet, OrderViewSet, PaymentMethodViewSet
+
+from store.viewsets.commande_viewset import CommandeViewSet
+from store.viewsets.mode_paiement_viewset import ModePaiementViewSet
+from store.viewsets.panier_viewset import PanierViewSet
 
 router = DefaultRouter()
-router.register(r'carts', CartViewSet, basename='cart')
-router.register(r'cart-items', CartItemViewSet, basename='cart-item')
-router.register(r'deliveries', DeliveryViewSet, basename='delivery')
-router.register(r'orders', OrderViewSet, basename='order')
-router.register(r'payment-methods', PaymentMethodViewSet, basename='payment-method')
+router.register(r'commandes', CommandeViewSet, basename='commande')
+router.register(r'modes-paiement', ModePaiementViewSet, basename='mode-paiement')
+router.register(r'paniers', PanierViewSet, basename='panier')
 
 urlpatterns = [
     path('', include(router.urls)),
