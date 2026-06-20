@@ -1,0 +1,22 @@
+trois applications
+STORE
+VENDEUSE
+CUSTOMER (gerer les clients)
+
+// les modèles
+paiement
+commande
+produit
+categorie produit
+avis
+mode de paiement
+moyen de paiement
+favoris
+etiquette de produit
+clients
+admin
+role
+user
+ville pays
+adresse livraison 
+livraison

@@ -5,21 +5,20 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 
-def home(request):
-    html = """
-    <h1>iit_store</h1>
-    <ul>
-        <li><a href="/store/">Store</a></li>
-        <li><a href="/customer/">Customer</a></li>
-        <li><a href="/vendeur/">Vendeur</a></li>
-        <li><a href="/admin/">Admin</a></li>
-    </ul>
-    """
-    return HttpResponse(html)
+# def home(request):
+#     html = """
+#     <h1>iit_store</h1>
+#     <ul>
+#         <li><a href="/store/">Store</a></li>
+#         <li><a href="/customer/">Customer</a></li>
+#         <li><a href="/vendeur/">Vendeur</a></li>
+#         <li><a href="/admin/">Admin</a></li>
+#     </ul>
+#     """
+#     return HttpResponse(html)
 
 
 urlpatterns = [
-    path('', home, name='home'),
     path('admin/', admin.site.urls),
     path('store/', include('store.urls')),
     path('vendeur/', include('vendeur.urls')),
