@@ -1,5 +1,5 @@
 from rest_framework import viewsets
-from vendor.serializers.produit import ProduitSerializer
+from vendor.serializers.produit_serializer import ProduitSerializer
 from vendor.models.produit import Produit
 
 

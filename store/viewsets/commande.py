@@ -1,5 +1,5 @@
 from rest_framework import viewsets
-from store.serializers.commande import CommandeSerializer
+from store.serializers.commande_serializer import CommandeSerializer
 from store.models.commande import Commande
 
 

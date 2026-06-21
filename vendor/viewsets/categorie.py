@@ -1,5 +1,5 @@
 from rest_framework import viewsets
-from vendor.serializers.categorie import CategorieSerializer
+from vendor.serializers.categorie_serializer import CategorieSerializer
 from vendor.models.categorie import Categorie
 
 

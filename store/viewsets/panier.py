@@ -1,5 +1,5 @@
 from rest_framework import viewsets
-from store.serializers.panier import PanierSerializer
+from store.serializers.panier_serializer import PanierSerializer
 from store.models.panier import Panier
 
 

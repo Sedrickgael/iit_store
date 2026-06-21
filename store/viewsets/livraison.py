@@ -1,5 +1,5 @@
 from rest_framework import viewsets
-from store.serializers.livraison import LivraisonSerializer
+from store.serializers.livraison_serializer import LivraisonSerializer
 from store.models.livraison import Livraison
 
 

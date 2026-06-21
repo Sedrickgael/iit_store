@@ -1,5 +1,5 @@
 from rest_framework import viewsets
-from vendor.serializers.vendeur import VendeurSerializer
+from vendor.serializers.vendeur_serializer import VendeurSerializer
 from iit_store.vendor.models.boutique import Vendeur
 
 

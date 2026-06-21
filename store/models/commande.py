@@ -22,9 +22,9 @@ class Commande(StandardModel):
         verbose_name = 'Commande' # verbose_name reprensente le nom du model
         verbose_name_plural = "Commandes"
 
-    profil = models.ForeignKey('customer.Profil', on_delete=models.CASCADE, related_name='adress_user',verbose_name=_("Profil Utilisateur"))
+    profil = models.ForeignKey('customer.Profil', on_delete=models.CASCADE, related_name='commandes',verbose_name=_("Profil Utilisateur"))
     number = models.CharField(max_length=20, unique=True, blank=True, verbose_name=_("Numéro de commande"))
-    destination = models.CharField(verbose_name=_("Adresse de livraison"))
+    destination = models.CharField(max_length=255, verbose_name=_("Adresse de livraison"))
     statut = models.CharField(max_length=100, choices=StatutChoices.choices, default=StatutChoices.EN_ATTENTE, verbose_name=_('Statut de la commande'))
     mode_reglement = models.ForeignKey("store.ModeDeReglement", on_delete=models.SET_NULL, null=True, blank=True, related_name="commandes", verbose_name=_("Mode de règlement"))
    
@@ -42,5 +42,5 @@ class Commande(StandardModel):
         items = LigneCommande.objects.filter(order=self.id)
         total = 0
         for item in items:
-            total += item.sub_total()
+            total += item.sub_total
         return total 

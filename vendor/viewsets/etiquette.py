@@ -1,5 +1,5 @@
 from rest_framework import viewsets
-from vendor.serializers.etiquette import EtiquetteSerializer
+from vendor.serializers.etiquette_serializer import EtiquetteSerializer
 from vendor.models.etiquette import Etiquette
 
 

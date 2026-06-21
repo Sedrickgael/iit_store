@@ -1,5 +1,5 @@
 from rest_framework import viewsets
-from store.serializers.mode_de_reglement import ModeDeReglementSerializer
+from store.serializers.mode_de_reglement_serializer import ModeDeReglementSerializer
 from store.models.mode_de_reglement import ModeDeReglement
 
 
