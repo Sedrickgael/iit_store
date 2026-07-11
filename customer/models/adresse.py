@@ -11,7 +11,7 @@ class AdresseModel(StandardModel):
 
     utilisateur = models.ForeignKey(User, on_delete=models.CASCADE, related_name='adresses')
     rue = models.CharField(max_length=255, blank=True)
-    ville = models.CharField(max_length=100, blank=True)
+    ville = models.IntegerField(max_length=5, blank=True)
     code_postal = models.CharField(max_length=20, blank=True)
     pays = models.CharField(max_length=100, blank=True)
 
