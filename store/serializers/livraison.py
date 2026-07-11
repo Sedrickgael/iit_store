@@ -3,33 +3,30 @@ from store.models.livraison import Livraison
 
 
 class LivraisonSerializer(serializers.ModelSerializer):
+    city = serializers.SerializerMethodField()
+    country = serializers.SerializerMethodField()
 
-    order = serializers.SerializerMethodField()
-
-    class Meta :
+    class Meta:
         model = Livraison
         fields = [
             "id",
-            "slug",
-            "city", 
-            "order", 
-            "status", 
-            "country", 
-            "order_id", 
-            "shipped_at", 
+            "order",
+            "status",
+            "address",
+            "country",
+            "city",
+            "tracking_number",
+            "shipped_at",
             "expected_at",
             "delivered_at",
-            "tracking_number", 
-            ]
-        
-    def get_order(self, obj):
-        return  [
-            {
-                'id': item.id,
-                'slug' : item.slug,
-                'number': item.number,
-                'statut': item.statut,
-                'destination' : item.destination,
-            }
-        for item in obj.livraison_commande.all()
         ]
+
+    def get_city(self, obj):
+        if obj.city:
+            return {"id": obj.city.id, "name": obj.city.name}
+        return None
+
+    def get_country(self, obj):
+        if obj.country:
+            return {"id": obj.country.id, "name": obj.country.name}
+        return None

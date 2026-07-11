@@ -12,14 +12,14 @@ class Commande(StandardModel):
     """
 
     class StatutChoices(models.TextChoices):
-        EN_COURS = "en_cours",   _("En cours de livraison")
+        EN_COURS = "en_cours", _("En cours de livraison")
         EN_ATTENTE = "en_attente", _("En attente")
-        CONFIRMEE = "confirmee",  _("Confirmée")
-        ANNULEE = "annulee",    _("Annulée")
-        LIVREE = "livree",     _("Livrée")
+        CONFIRMEE = "confirmee", _("Confirmée")
+        ANNULEE = "annulee", _("Annulée")
+        LIVREE = "livree", _("Livrée")
 
-    class Meta: # cette class contient les meta donnees
-        verbose_name = 'Commande' # verbose_name reprensente le nom du model
+    class Meta: 
+        verbose_name = 'Commande' 
         verbose_name_plural = "Commandes"
 
     profil = models.ForeignKey('customer.Profil', on_delete=models.CASCADE, related_name='adress_user',verbose_name=_("Profil Utilisateur"))

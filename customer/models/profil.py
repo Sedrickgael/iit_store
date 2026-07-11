@@ -21,7 +21,7 @@ class Profil(StandardModel):  # hérite telephone, date_naissance, est_actif
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profil_user', verbose_name=_("Profil utilisateur"))
     genre = models.CharField(max_length=1, choices=GENRE_CHOICES, blank=True, verbose_name=_("Genre"))
-    role = models.CharField(max_length=100, role=ROLE, blank=True, verbose_name=_("Rôle"))
+    role = models.CharField(max_length=100, choices=ROLE, blank=True, verbose_name=_("Rôle"))
     photo = models.ImageField(upload_to=photo_path, null=True, blank=True, verbose_name=_("Photo"))
     
     telephone = models.CharField(max_length=20, blank=True, verbose_name=_("Téléphone"))
@@ -36,12 +36,11 @@ class Profil(StandardModel):  # hérite telephone, date_naissance, est_actif
     def __str__(self):
         return f"Profil de {self.user.username}"
     
-    @receiver(post_save, sender=User)
-    def create_user_profil(sender, instance, created, **kwargs):
-        if created:
-            Profil.objects.create(user=instance)
+@receiver(post_save, sender=User)
+def create_user_profil(sender, instance, created, **kwargs):
+    if created:
+        Profil.objects.create(user=instance)
 
-    @receiver(post_save, sender=User)
-    def save_user_profil(sender, instance, created, **kwargs):
-        
-        instance.profil.save()
+@receiver(post_save, sender=User)
+def save_user_profil(sender, instance, created, **kwargs):
+    instance.profil.save()

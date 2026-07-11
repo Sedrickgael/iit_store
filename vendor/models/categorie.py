@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
-from django.utils.translation import gettext_lazy as _ # pour la traduction multilanguage
+from django.utils.translation import gettext_lazy as _ 
 from base.utils.models.standard_model import StandardModel
 
 
@@ -10,8 +10,8 @@ class Categorie(StandardModel):
         Modele catégorie
     """
 
-    class Meta: # cette class contient les meta donnees
-        verbose_name = 'Categorie' # verbose_name reprensente le nom du model
+    class Meta: 
+        verbose_name = 'Categorie' 
         verbose_name_plural = "Categories"
 
     name = models.CharField(max_length=20, verbose_name=_("Nom"))

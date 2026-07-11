@@ -1,30 +1,18 @@
 from rest_framework import serializers
 from store.models.panier import Panier
+from store.serializers.ligne_panier import PanierItemSerializer
 
 
 class PanierSerializer(serializers.ModelSerializer):
+    items = PanierItemSerializer(many=True, read_only=True)
+    total = serializers.ReadOnlyField()  
 
-    product = serializers.SerializerMethodField()
-
-    class Meta :
+    class Meta:
         model = Panier
         fields = [
             "id",
-            "slug",
-            "product",
-            "quantity",
+            "profil",
             "session_key",
-            "product_id",
-            ]
-        
-    def get_product(self, obj):
-        return  [
-            {
-                'id': item.id,
-                'slug' : item.slug,
-                'name': item.name,
-                'price': item.price,
-            }
-        for item in obj.articles_panier.all()
+            "items",
+            "total",
         ]
-        

@@ -20,14 +20,14 @@ from rest_framework import routers,viewsets
 from vendor.viewsets.categorie import CategorieViewSet
 from vendor.viewsets.etiquette import EtiquetteViewSet
 from vendor.viewsets.produit import ProduitViewSet
-from vendor.viewsets.vendeur import VendeurViewSet
+from vendor.viewsets.boutique import BoutiqueViewSet
 
 
 router = routers.DefaultRouter()
 router.register(r"categories", CategorieViewSet)
 router.register(r"etiquettes", EtiquetteViewSet)
 router.register(r"produts", ProduitViewSet)
-router.register(r"vendeurs", VendeurViewSet)
+router.register(r"boutiques", BoutiqueViewSet)
 
 
 

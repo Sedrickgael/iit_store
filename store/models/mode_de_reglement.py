@@ -9,9 +9,9 @@ class ModeDeReglement(StandardModel):
     """
 
     class TypeChoices(models.TextChoices):
-        CARTE = "carte",   _("Carte bancaire")
+        CARTE = "carte", _("Carte bancaire")
         MOBILE_MONEY = "mobile_money", _("Mobile Money")
-        ESPECES  = "especes",  _("Espèces")
+        ESPECES  = "especes", _("Espèces")
         VIREMENT = "virement",  _("Virement bancaire")
 
     class Meta:

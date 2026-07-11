@@ -22,7 +22,6 @@ class Livraison(StandardModel):
 
     status = models.CharField(max_length=100, choices=StatutChoices.choices, default = StatutChoices.EN_ATTENTE, verbose_name=_('Statut de la livraison'))
     address = models.TextField(max_length=100, verbose_name=_("Adresse de livraison"))
-    # Localisation via cities_light
     country = models.ForeignKey(Country, on_delete=models.SET_NULL, null=True, blank=True, verbose_name=_("Pays"))
     city = models.ForeignKey(City, on_delete=models.SET_NULL, null=True, blank=True,)
     tracking_number = models.CharField( max_length=100, blank=True, verbose_name=_("Numéro de suivi"))

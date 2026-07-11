@@ -1,8 +1,10 @@
-from rest_framework import viewsets
-from store.serializers.livraison import LivraisonSerializer
+from rest_framework.viewsets import ModelViewSet
+from rest_framework.permissions import IsAuthenticated
 from store.models.livraison import Livraison
+from store.serializers.livraison import LivraisonSerializer
 
 
-class LivraisonViewSet(viewsets.ModelViewSet):
-    queryset = Livraison.objects.filter(active=True)
+class LivraisonViewSet(ModelViewSet):
+    queryset = Livraison.objects.all()
     serializer_class = LivraisonSerializer
+    permission_classes = [IsAuthenticated]

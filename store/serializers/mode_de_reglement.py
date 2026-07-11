@@ -4,13 +4,11 @@ from store.models.mode_de_reglement import ModeDeReglement
 
 class ModeDeReglementSerializer(serializers.ModelSerializer):
 
-    class Meta :
+    class Meta:
         model = ModeDeReglement
         fields = [
             "id",
-            "slug",
-            "name", 
-            "type", 
+            "name",
+            "type",
             "is_active",
-            ]
-        
+        ]
