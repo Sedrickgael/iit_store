@@ -1,17 +1,31 @@
+# panier.py
 from django.db import models
-from django.contrib.auth.models import User
-from base.models.utils.standard_model import StandardModel
-from vendeur.models.produit import ProduitModel
 from django.utils.translation import gettext_lazy as _
+from base.utils.models.standard_model import StandardModel
+from django.contrib.sessions.models import Session
+from store.models.ligne_panier import PanierItem
+import uuid
 
 
-class PanierModel(StandardModel):
-    """Modèle représentant un panier d'achat pour un utilisateur, contenant des produits et leurs quantités."""
+class Panier(StandardModel):
+    """
+    Modele panier
+    """
     class Meta:
-        verbose_name = "Panier"
-        verbose_name_plural = "Paniers"
+        verbose_name  = "Article du panier"
+        verbose_name_plural = "Articles du panier"
+        unique_together = ("session_key", "product_id")
+    
+    profil = models.ForeignKey('customer.Profil', on_delete=models.CASCADE, related_name='adress_user',verbose_name=_("Profil Utilisateur"), null=True, blank=True)
+    session_key = models.ForeignKey(Session, verbose_name=_("Clé de session"), blank=True, null=True, on_delete=models.CASCADE)
 
-    utilisateur = models.ForeignKey(User, on_delete=models.CASCADE, related_name='paniers')
-    reference = models.CharField(max_length=254, verbose_name="Référence")
-    produit = models.ForeignKey(ProduitModel, on_delete=models.CASCADE, related_name='paniers')
-    quantite = models.PositiveIntegerField(default=1)
+    @property
+    def total(self):
+        items = PanierItem.objects.filter(cart=self.id)
+        total = 0
+        for item in items:
+            total += item.sub_total()
+        return total 
+
+ 
+    

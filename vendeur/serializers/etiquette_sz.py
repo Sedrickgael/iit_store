@@ -1,7 +1,29 @@
 from rest_framework import serializers
-from vendeur.models.etiquette import Etiquette
+from vendor.models.etiquette import Etiquette
+
 
 class EtiquetteSerializer(serializers.ModelSerializer):
-    class Meta:
+
+    produits = serializers.SerializerMethodField()
+
+    class Meta :
         model = Etiquette
-        fields = ['id', 'name', 'description']
+        fields = [
+            "id",
+            "slug",
+            "name", 
+            "description", 
+            "produits",
+            ]
+        
+    def get_produits(self, obj):
+        return  [
+            {
+                'id': item.id,
+                "slug" : item.slug,
+                'name': item.name,
+                'price' : item.price,
+                'description': item.description,
+            }
+        for item in obj.etiquette_produits_ids.all()
+        ]

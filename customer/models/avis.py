@@ -1,20 +1,18 @@
-from django.contrib.auth.models import User
 from django.db import models
-from base.models.utils.standard_model import StandardModel
-from vendeur.models.produit import ProduitModel
-from django.core.validators import MinValueValidator, MaxValueValidator
+from base.utils.models import StandardModel
+from django.utils.translation import gettext_lazy as _
 
+class Avis(StandardModel):
+    profil = models.ForeignKey('customer.Profil', on_delete=models.CASCADE, related_name='avis_user', verbose_name=_("Profil utilisateur"))
+    product = models.ForeignKey('vendor.Produit', on_delete=models.CASCADE, related_name='avis_produit', verbose_name=_("produit"))
+    note = models.PositiveSmallIntegerField(verbose_name=_("Note du produit"))  
+    commentaire = models.TextField(blank=True, verbose_name=_("Commentaire utilisateur"))
+    is_approved = models.BooleanField(default=False, verbose_name=_("Approbation"))
 
-
-class AvisModel(StandardModel):
     class Meta:
         verbose_name = 'Avis'
         verbose_name_plural = 'Avis'
-
-    utilisateur = models.ForeignKey(User, on_delete=models.CASCADE, related_name='avis')
-    produit = models.ForeignKey(ProduitModel, on_delete=models.CASCADE, related_name='avis')
-    note = models.PositiveSmallIntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
-    commentaire = models.TextField(blank=True)
+        unique_together = ('profil', 'product')  # un seul avis par client par produit
 
     def __str__(self):
-        return f"{self.utilisateur.username} - {self.produit.nom} ({self.note})"
+        return f"Avis de {self.profil.user.username} - {self.note}/5"

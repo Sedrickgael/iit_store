@@ -1,15 +1,16 @@
 from rest_framework import serializers
-from customer.models.adresse import Adresse
+from vendor.models.boutique import Boutique
+from vendor.models.produit import Produit
 from cities_light.models import City, Country
 
 
-class AdresseSerializer(serializers.ModelSerializer):
+class BoutiqueSerializer(serializers.ModelSerializer):
 
-    # Lecture : détails de la ville et du pays
+    profil = serializers.SerializerMethodField()
     city = serializers.SerializerMethodField()
     country = serializers.SerializerMethodField()
+    produits = serializers.SerializerMethodField()
 
-    # Écriture : on reçoit les IDs
     city_id = serializers.PrimaryKeyRelatedField(
         queryset=City.objects.all(),
         source='city',
@@ -23,19 +24,37 @@ class AdresseSerializer(serializers.ModelSerializer):
         required=False
     )
 
+    produit_id = serializers.PrimaryKeyRelatedField(
+        queryset=Produit.objects.all(),
+        many=True,
+        required=False
+    )
+
+  
+    slug = serializers.SlugField(read_only=True)
+
     class Meta:
-        model = Adresse
+        model = Boutique
         fields = [
             "id",
             "profil",
-            "type",
-            "street",
+            "name",
+            "address",
             "country_id",
             "country",
             "city_id",
             "city",
-            "is_default",
+            "email",
+            "slug",
+            "produit_id",
+            "produits",
         ]
+
+    def get_profil(self, obj):
+        return {
+            "id": obj.profil.id,
+            "username": obj.profil.user.username,
+        }
 
     def get_city(self, obj):
         if obj.city:
@@ -46,3 +65,11 @@ class AdresseSerializer(serializers.ModelSerializer):
         if obj.country:
             return {"id": obj.country.id, "name": obj.country.name}
         return None
+
+    def get_produits(self, obj):
+        return [
+            {"id": p.id, 
+             "name": str(p)
+             }
+            for p in obj.produit_id.all()
+        ]

@@ -1,8 +1,8 @@
 from rest_framework import viewsets
-from vendeur.models.categorie import Categorie
-from vendeur.serializers.categorie_sz import CategorieSerializer
-# Create your views here.
+from vendor.serializers.categorie import CategorieSerializer
+from vendor.models.categorie import Categorie
+
 
 class CategorieViewSet(viewsets.ModelViewSet):
-    queryset = Categorie.objects.all()
+    queryset = Categorie.objects.filter(active=True)
     serializer_class = CategorieSerializer

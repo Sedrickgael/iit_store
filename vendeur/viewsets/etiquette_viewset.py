@@ -1,9 +1,8 @@
 from rest_framework import viewsets
-
-from vendeur.models.etiquette import Etiquette
-from vendeur.serializers.etiquette_sz import EtiquetteSerializer
+from vendor.serializers.etiquette import EtiquetteSerializer
+from vendor.models.etiquette import Etiquette
 
 
 class EtiquetteViewSet(viewsets.ModelViewSet):
-    queryset = Etiquette.objects.all()
+    queryset = Etiquette.objects.filter(active=True)
     serializer_class = EtiquetteSerializer
