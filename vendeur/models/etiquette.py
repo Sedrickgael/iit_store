@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
-from base.utils.models.standard_model import StandardModel
+from base.models.utils.standard_model import StandardModel
 
 
 class Etiquette(StandardModel):

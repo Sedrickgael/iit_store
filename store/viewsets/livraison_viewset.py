@@ -1,7 +1,7 @@
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAuthenticated
 from store.models.panier import Panier
-from store.serializers.panier import PanierSerializer
+from store.serializers.ligne_panier_serializer import PanierSerializer
 
 
 class PanierViewSet(ModelViewSet):

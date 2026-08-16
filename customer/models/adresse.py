@@ -1,5 +1,5 @@
 from django.db import models
-from base.utils.models import ProfilBase
+from base.models.utils.profil import ProfilBase
 from cities_light.models import City, Country
 from django.utils.translation import gettext_lazy as _
 

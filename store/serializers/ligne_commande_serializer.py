@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from store.models.ligne_de_commande import LigneCommande
+from store.models.ligne_commande import LigneCommande
 
 
 class LigneCommandeSerializer(serializers.ModelSerializer):

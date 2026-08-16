@@ -1,7 +1,7 @@
 # panier.py
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from base.utils.models.standard_model import StandardModel
+from base.models.utils.standard_model import StandardModel
 from django.contrib.sessions.models import Session
 from store.models.ligne_panier import PanierItem
 import uuid

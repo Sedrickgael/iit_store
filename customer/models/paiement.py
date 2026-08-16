@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
-from base.utils.models.standard_model import StandardModel
+from base.models.utils.standard_model import StandardModel
 from store.models.commande import Commande
 from django.utils.translation import gettext_lazy as _
 

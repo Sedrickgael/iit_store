@@ -1,5 +1,5 @@
 from django.db import models
-from base.utils.models.standard_model import StandardModel
+from base.models.utils.standard_model import StandardModel
 from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
 from django.db.models.signals import post_save

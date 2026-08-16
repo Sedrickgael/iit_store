@@ -1,7 +1,7 @@
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAuthenticated
 from store.models.commande import Commande
-from store.serializers.commande import CommandeSerializer
+from store.serializers.commande_serializer import CommandeSerializer
 
 
 class CommandeViewSet(ModelViewSet):

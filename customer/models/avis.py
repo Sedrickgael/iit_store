@@ -1,5 +1,5 @@
 from django.db import models
-from base.utils.models import StandardModel
+from base.models.utils.standard_model import StandardModel
 from django.utils.translation import gettext_lazy as _
 
 class Avis(StandardModel):
