@@ -1,7 +1,7 @@
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAuthenticated
 from customer.models.avis import Avis
-from customer.serializers.avis import AvisSerializer
+from customer.serializers.avis_sz import AvisSerializer
 
 
 class AvisViewSet(ModelViewSet):

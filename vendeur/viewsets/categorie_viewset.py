@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from vendor.serializers.categorie import CategorieSerializer
-from vendor.models.categorie import Categorie
+from vendeur.serializers.categorie_sz import CategorieSerializer
+from vendeur.models.categorie import Categorie
 
 
 class CategorieViewSet(viewsets.ModelViewSet):

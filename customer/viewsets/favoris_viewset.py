@@ -1,7 +1,7 @@
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAuthenticated
 from customer.models.favoris import Favoris
-from customer.serializers.favoris import FavorisSerializer
+from customer.serializers.favoris_sz import FavorisSerializer
 
 
 class FavorisViewSet(ModelViewSet):

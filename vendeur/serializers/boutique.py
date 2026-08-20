@@ -1,6 +1,6 @@
 from rest_framework import serializers
-from vendor.models.boutique import Boutique
-from vendor.models.produit import Produit
+from vendeur.models.boutique import Boutique
+from vendeur.models.produit import Produit
 from cities_light.models import City, Country
 
 

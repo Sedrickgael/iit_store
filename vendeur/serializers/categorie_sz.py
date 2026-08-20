@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from vendor.models.categorie import Categorie
+from vendeur.models.categorie import Categorie
 
 
 class CategorieSerializer(serializers.ModelSerializer):

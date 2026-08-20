@@ -1,7 +1,7 @@
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAuthenticated
-from store.models.mode_de_reglement import ModeDeReglement
-from store.serializers.mode_de_reglement import ModeDeReglementSerializer
+from store.models.mode_reglement import ModeDeReglement
+from store.serializers.mode_reglement_serializer import ModeDeReglementSerializer
 
 
 class ModeDeReglementViewSet(ModelViewSet):

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from store.models.mode_de_reglement import ModeDeReglement
+from store.models.mode_reglement import ModeDeReglement
 
 
 class ModeDeReglementSerializer(serializers.ModelSerializer):

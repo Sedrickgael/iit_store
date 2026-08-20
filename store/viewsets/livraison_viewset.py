@@ -1,16 +1,10 @@
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAuthenticated
-from store.models.panier import Panier
-from store.serializers.ligne_panier_serializer import PanierSerializer
+from store.models.livraison import Livraison
+from store.serializers.livraison_serializer import LivraisonSerializer
 
 
-class PanierViewSet(ModelViewSet):
-    queryset = Panier.objects.all()
-    serializer_class = PanierSerializer
+class LivraisonViewSet(ModelViewSet):
+    queryset = Livraison.objects.all()
+    serializer_class = LivraisonSerializer
     permission_classes = [IsAuthenticated]
-
-    def get_queryset(self):
-        if getattr(self, 'swagger_fake_view', False):
-            return Panier.objects.none()
-        user = self.request.user
-        return Panier.objects.filter(profil__user=user)

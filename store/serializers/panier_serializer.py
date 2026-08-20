@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from store.models.panier import Panier
-from store.serializers.ligne_panier import PanierItemSerializer
+from store.serializers.ligne_panier_serializer import PanierItemSerializer
 
 
 class PanierSerializer(serializers.ModelSerializer):

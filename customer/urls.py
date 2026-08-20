@@ -1,11 +1,11 @@
 from rest_framework.routers import DefaultRouter
 from django.urls import path, include
-from customer.viewsets.profil import ProfilViewSet
-from customer.viewsets.adresse import AdresseViewSet
-from customer.viewsets.avis import AvisViewSet
-from customer.viewsets.favoris import FavorisViewSet
-from customer.viewsets.moyen_de_paiement import MoyenPaiementViewSet
-from customer.viewsets.paiement import PaiementViewSet
+from customer.viewsets.profil_viewset import ProfilViewSet
+from customer.viewsets.adresse_viewset import AdresseViewSet
+from customer.viewsets.avis_viewset import AvisViewSet
+from customer.viewsets.favoris_viewset import FavorisViewSet
+from customer.viewsets.moyen_paiement_viewset import MoyenPaiementViewSet
+from customer.viewsets.paiement_viewset import PaiementViewSet
 
 router = DefaultRouter()
 router.register(r"profils", ProfilViewSet)

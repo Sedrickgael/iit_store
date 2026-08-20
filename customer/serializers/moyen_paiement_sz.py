@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from customer.models.moyen_de_paiement import MoyenPaiementModel
+from customer.models.moyen_paiement import MoyenPaiementModel
 
 
 class MoyenPaiementSerializer(serializers.ModelSerializer):

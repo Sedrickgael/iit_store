@@ -1,7 +1,7 @@
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAuthenticated
 from customer.models.adresse import Adresse
-from customer.serializers.adresse import AdresseSerializer
+from customer.serializers.adresse_sz import AdresseSerializer
 
 
 class AdresseViewSet(ModelViewSet):

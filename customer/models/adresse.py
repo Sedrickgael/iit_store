@@ -1,10 +1,10 @@
 from django.db import models
-from base.models.utils.profil import ProfilBase
+from base.models.utils.profil import User
 from cities_light.models import City, Country
 from django.utils.translation import gettext_lazy as _
 
 
-class Adresse(ProfilBase):
+class Adresse(User):
     TYPE_CHOICES = [
         ('domicile', 'Domicile'),
         ('bureau', 'Bureau'),

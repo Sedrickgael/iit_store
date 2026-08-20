@@ -1,7 +1,7 @@
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAuthenticated
 from customer.models.paiement import PaiementModel
-from customer.serializers.paiement import PaiementSerializer
+from customer.serializers.paiement_sz import PaiementSerializer
 
 
 class PaiementViewSet(ModelViewSet):

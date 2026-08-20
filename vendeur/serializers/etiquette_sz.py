@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from vendor.models.etiquette import Etiquette
+from vendeur.models.etiquette import Etiquette
 
 
 class EtiquetteSerializer(serializers.ModelSerializer):

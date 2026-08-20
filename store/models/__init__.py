@@ -1,4 +1,3 @@
-from .commande import CommandeModel
-from .mode_paiement import ModePaiementModel
-from .panier import PanierModel
+from .commande import Commande
+from .panier import Panier
 

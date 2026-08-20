@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from vendor.serializers.boutique import BoutiqueSerializer
-from vendor.models.boutique import Boutique
+from vendeur.serializers.boutique import BoutiqueSerializer
+from vendeur.models.boutique import Boutique
 
 
 class BoutiqueViewSet(viewsets.ModelViewSet):

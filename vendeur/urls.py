@@ -17,10 +17,10 @@ Including another URLconf
 
 from django.urls import path, include
 from rest_framework import routers,viewsets
-from vendor.viewsets.categorie import CategorieViewSet
-from vendor.viewsets.etiquette import EtiquetteViewSet
-from vendor.viewsets.produit import ProduitViewSet
-from vendor.viewsets.boutique import BoutiqueViewSet
+from vendeur.viewsets.categorie_viewset import CategorieViewSet
+from vendeur.viewsets.etiquette_viewset import EtiquetteViewSet
+from vendeur.viewsets.produit_viewset import ProduitViewSet
+from vendeur.viewsets.boutique import BoutiqueViewSet
 
 
 router = routers.DefaultRouter()
