@@ -3,7 +3,7 @@ from django.utils.translation import gettext_lazy as _ # pour la traduction mult
 from base.models.utils.standard_model import StandardModel
 from cities_light.models import City, Country
 
-class Livraison(StandardModel):
+class Livraison(StandardModel): 
 
     """
         Modele livraison

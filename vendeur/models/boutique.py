@@ -22,7 +22,7 @@ class Boutique(StandardModel):
     email = models.EmailField(verbose_name=_("Email"), max_length=254)
     slug = models.SlugField("Slug", blank=True)
 
-    produit_id = models.ManyToManyField("vendor.Produit", related_name=_("vendeur_id"), verbose_name=_("Produit"))
+    produit_id = models.ManyToManyField("vendeur.Produit", related_name=_("vendeur_id"), verbose_name=_("Produit"))
 
     def __str__(self):
        return f"{self.name}"

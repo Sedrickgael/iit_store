@@ -14,7 +14,7 @@ class LigneCommande(StandardModel):
 
     order = models.ForeignKey("store.Commande", on_delete=models.CASCADE, related_name="lignes", verbose_name=_("Commande"))
 
-    product = models.ForeignKey("vendor.Produit", on_delete=models.PROTECT, related_name="lignes_commande", verbose_name=_("Produit"))
+    product = models.ForeignKey("vendeur.Produit", on_delete=models.PROTECT, related_name="lignes_commande", verbose_name=_("Produit"))
 
     quantity = models.PositiveIntegerField(default=1, verbose_name=_("Quantité"))
 

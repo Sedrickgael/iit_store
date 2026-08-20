@@ -22,7 +22,7 @@ class Commande(StandardModel):
         verbose_name = 'Commande' 
         verbose_name_plural = "Commandes"
 
-    profil = models.ForeignKey('customer.Profil', on_delete=models.CASCADE, related_name='adress_user',verbose_name=_("Profil Utilisateur"))
+    profil = models.ForeignKey('customer.Profil', on_delete=models.CASCADE, related_name='commandes',verbose_name=_("Profil Utilisateur"))
     number = models.CharField(max_length=20, unique=True, blank=True, verbose_name=_("Numéro de commande"))
     destination = models.CharField(verbose_name=_("Adresse de livraison"))
     statut = models.CharField(max_length=100, choices=StatutChoices.choices, default=StatutChoices.EN_ATTENTE, verbose_name=_('Statut de la commande'))

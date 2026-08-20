@@ -11,7 +11,7 @@ class Adresse(User):
         ('autre', 'Autre'),
     ]
 
-    profil = models.ForeignKey('customer.Profil', on_delete=models.CASCADE, related_name='adress_user',verbose_name=_("Profil Utilisateur"))
+    profil = models.ForeignKey('customer.Profil', on_delete=models.CASCADE, related_name='adresses',verbose_name=_("Profil Utilisateur"))
     type = models.CharField(max_length=20, choices=TYPE_CHOICES, default='domicile', verbose_name=_("Type d'adresse"))
     street = models.CharField(max_length=255, verbose_name=_("Rue"))
     country = models.ForeignKey( Country, on_delete=models.SET_NULL, null=True, blank=True, verbose_name=_("Pays"), default='Côte d\'Ivoire',max_length=100)

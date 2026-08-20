@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'cities_light',
 ]
 
+AUTH_USER_MODEL = 'base.User'
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
