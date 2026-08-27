@@ -4,7 +4,10 @@ django-autoslug==1.9.9
 django-cities-light==3.11
 django-filter==25.2
 djangorestframework==3.17.1
+drf-spectacular==0.28.0
+Faker==37.1.0
 Markdown==3.10.2
+Pillow==11.3.0
 progressbar2==4.5.0
 psutil==7.2.2
 psycopg2==2.9.12

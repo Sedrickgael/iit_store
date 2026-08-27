@@ -17,7 +17,7 @@ class Produit(StandardModel):
     name = models.CharField(max_length=100, verbose_name=_("Nom"))
     description = models.TextField(verbose_name=_("Description"))
     price = models.DecimalField(max_digits=10, decimal_places=2,null=True, blank=True ,verbose_name=_("Prix du produit"))
-    slug = models.SlugField("Slug", blank=True)
+    slug = models.SlugField("Slug", blank=True, max_length=200)
     boutique = models.ForeignKey("vendor.Boutique", on_delete=models.RESTRICT, verbose_name=_("Boutique"), related_name="boutique_produits")
     categorie = models.ForeignKey("vendor.Categorie", on_delete=models.CASCADE, related_name="produit_ids", verbose_name=_("Catégorie"))
     etiquette = models.ManyToManyField("vendor.Etiquette", related_name=_("etiquette_produits_ids"), verbose_name=_("Etiquette"))

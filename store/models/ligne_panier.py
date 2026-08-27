@@ -33,6 +33,6 @@ class PanierItem(StandardModel):
     def sub_total(self):
         return self.quantity * self.product.price
  
-    def _str_(self):
+    def __str__(self):  
         return f"{self.quantity}x {self.product} — {self.cart}"
     

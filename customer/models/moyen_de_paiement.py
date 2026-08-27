@@ -1,4 +1,3 @@
-from django.contrib.auth.models import User
 from django.db import models
 from base.utils.models.standard_model import StandardModel
 from django.utils.translation import gettext_lazy as _

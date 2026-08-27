@@ -8,49 +8,44 @@ class ProduitSerializer(serializers.ModelSerializer):
     etiquettes = serializers.SerializerMethodField()
     vendeurs = serializers.SerializerMethodField()
 
-    class Meta :
+    class Meta:
         model = Produit
         fields = [
             "id",
             "slug",
-            "name", 
+            "name",
             "price",
-            "description", 
-            "categorie_id",
-            "categorie",
-            "etiquette_id",
-            "etiquettes",
+            "description",
+            "categorie",      
+            "etiquettes",      
             "vendeurs",
-            ]
-        
-    def get_categorie(self, obj):
-        return  [
-            {
-                'id': obj.categorie_id.id,
-                "slug" : obj.categorie_id.slug,
-                'name': obj.categorie_id.name,
-                'description': obj.categorie_id.description,
-            }
         ]
-    
+
+    def get_categorie(self, obj):
+        return {                        
+            'id': obj.categorie.id,      
+            'slug': obj.categorie.slug,
+            'name': obj.categorie.name,
+            'description': obj.categorie.description,
+        }
+
     def get_etiquettes(self, obj):
-        return  [
+        return [
             {
                 'id': item.id,
-                "slug" : item.slug,
+                'slug': item.slug,
                 'name': item.name,
                 'description': item.description,
             }
-        for item in obj.etiquette_id.all()
+            for item in obj.etiquette.all()  
         ]
-    
+
     def get_vendeurs(self, obj):
-        return  [
+        return [
             {
-                'id': item.id,
-                "slug" : item.slug,
-                'last_name': item.last_name,
-                'first_name': item.first_name,
+                'id': boutique.id,
+                'slug': boutique.slug,
+                'name': boutique.name,
             }
-        for item in obj.vendeur_id.all()
+            for boutique in obj.boutique_produits.all()  
         ]

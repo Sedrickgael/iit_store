@@ -32,5 +32,5 @@ router.register(r"boutiques", BoutiqueViewSet)
 
 
 urlpatterns = [
-    path("api/", include(router.urls)),
+    path("", include(router.urls)),
 ]

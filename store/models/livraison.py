@@ -11,10 +11,10 @@ class Livraison(StandardModel):
 
     class StatutChoices(models.TextChoices):
         EN_ATTENTE  = "en_attente",  _("En attente")
-        EXPEDIE     = "expedie",     _("Expédié")
+        EXPEDIE = "expedie", _("Expédié")
         EN_TRANSIT  = "en_transit",  _("En transit")
-        LIVRE       = "livre",       _("Livré")
-        ECHEC       = "echec",       _("Échec de livraison")
+        LIVRE = "livre", _("Livré")
+        ECHEC = "echec", _("Échec de livraison")
 
     class Meta: # cette class contient les meta donnees
         verbose_name = 'Livraison' # verbose_name reprensente le nom du model

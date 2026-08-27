@@ -14,9 +14,8 @@ class Panier(StandardModel):
     class Meta:
         verbose_name  = "Article du panier"
         verbose_name_plural = "Articles du panier"
-        unique_together = ("session_key", "product_id")
     
-    profil = models.ForeignKey('customer.Profil', on_delete=models.CASCADE, related_name='adress_user',verbose_name=_("Profil Utilisateur"), null=True, blank=True)
+    profil = models.ForeignKey('customer.Profil', on_delete=models.CASCADE, related_name='panier_user')
     session_key = models.ForeignKey(Session, verbose_name=_("Clé de session"), blank=True, null=True, on_delete=models.CASCADE)
 
     @property
@@ -24,7 +23,7 @@ class Panier(StandardModel):
         items = PanierItem.objects.filter(cart=self.id)
         total = 0
         for item in items:
-            total += item.sub_total()
+            total += item.sub_total 
         return total 
 
  

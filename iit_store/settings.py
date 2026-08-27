@@ -45,7 +45,8 @@ INSTALLED_APPS = [
 
     #Installed packages
     'cities_light',
-    "rest_framework",
+    'rest_framework',
+    'drf_spectacular',
 
     #Created Apps
     'base.apps.BaseConfig',
@@ -53,6 +54,19 @@ INSTALLED_APPS = [
     'store.apps.StoreConfig',
     'vendor.apps.VendorConfig',
 ]
+
+# Config Swagger (avec drf spectacular)
+# installer avec pip install drf-spectacular
+
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'IIT Store API',
+    'DESCRIPTION': 'API e-commerce IIT Store',
+    'VERSION': '1.0.0',
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -91,10 +105,10 @@ DATABASES = {
     'default': {
         'PASSWORD': os.environ.get('PASSWORD'),
         'ENGINE': os.environ.get('ENGINE'),
-        'NAME': os.environ.get('DB_NAME'),
+        'NAME': os.environ.get('NAME'), 
         'HOST': os.environ.get('HOST'),
         'USER': os.environ.get('DB_USER'),
-        'PORT': os.environ.get('PORT')
+        'PORT': os.environ.get('PORT'),
     }
 }
 
@@ -145,7 +159,7 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
-AUTH_USER_MODEL = "customer.Profil"
+AUTH_USER_MODEL = "base.User"
 
 # cities light
 CITIES_LIGHT_TRANSLATION_LANGUAGES = ['fr', 'en']

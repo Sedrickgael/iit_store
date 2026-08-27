@@ -20,7 +20,7 @@ class Boutique(StandardModel):
     country = models.ForeignKey(Country, on_delete=models.SET_NULL, null=True, blank=True, verbose_name=_("Pays"))
     city = models.ForeignKey(City, on_delete=models.SET_NULL, null=True, blank=True,)
     email = models.EmailField(verbose_name=_("Email"), max_length=254)
-    slug = models.SlugField("Slug", blank=True)
+    slug = models.SlugField("Slug", blank=True, max_length=200)
 
     produit_id = models.ManyToManyField("vendor.Produit", related_name=_("vendeur_id"), verbose_name=_("Produit"))
 
