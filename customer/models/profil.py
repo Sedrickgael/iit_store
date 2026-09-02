@@ -20,6 +20,7 @@ class Profil(AbstractUser):
         choices=[
             ('admin', 'Admin'),
             ('client', 'Client'),
+            ('vendeur', 'Vendeur'),
             ('moderateur', 'Moderateur'),
             ('visiteur', 'Visiteur'),
         ],

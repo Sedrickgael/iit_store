@@ -14,7 +14,6 @@ class VendeurSerializer(serializers.ModelSerializer):
             "last_name", 
             "first_name", 
             "email",
-            "produit_id",
             "produits"
             ]
         
@@ -27,6 +26,6 @@ class VendeurSerializer(serializers.ModelSerializer):
                 'price' : item.price,
                 'description': item.description,
             }
-        for item in obj.produit_id.all()
+        for item in obj.vendeur_produits.all()
         ]
     

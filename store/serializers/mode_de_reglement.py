@@ -8,7 +8,6 @@ class ModeDeReglementSerializer(serializers.ModelSerializer):
         model = ModeDeReglement
         fields = [
             "id",
-            "slug",
             "name", 
             "type", 
             "is_active",

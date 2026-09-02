@@ -10,7 +10,6 @@ class LivraisonSerializer(serializers.ModelSerializer):
         model = Livraison
         fields = [
             "id",
-            "slug",
             "city", 
             "order", 
             "status", 
@@ -26,7 +25,6 @@ class LivraisonSerializer(serializers.ModelSerializer):
         order = obj.livraison_commande
         return {
             'id': order.id,
-            'slug': order.slug,
             'number': order.number,
             'statut': order.statut,
             'destination': order.destination,

@@ -19,8 +19,6 @@ class Vendeur(StandardModel):
     password = models.CharField(max_length=128, verbose_name=_("Mot de passe"))
     slug = models.SlugField("Slug", blank=True)
 
-    produit_id = models.ManyToManyField("vendor.Produit", related_name="vendeur_id", verbose_name=_("Produit"))
-
     def __str__(self):
        return f"{self.first_name} {self.last_name}"
     

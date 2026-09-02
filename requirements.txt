@@ -2,7 +2,10 @@ asgiref==3.11.1
 Django==6.0.5
 django-autoslug==1.9.9
 django-cities-light==3.11
+django-cors-headers==4.9.0
 django-filter==25.2
+djangorestframework-simplejwt==5.5.1
+djangorestframework-simplejwt==5.5.1
 djangorestframework==3.17.1
 Markdown==3.10.2
 progressbar2==4.5.0

@@ -6,7 +6,7 @@ class ProduitSerializer(serializers.ModelSerializer):
 
     categorie = serializers.SerializerMethodField()
     etiquettes = serializers.SerializerMethodField()
-    vendeurs = serializers.SerializerMethodField()
+    vendeur_nom = serializers.SerializerMethodField()
 
     class Meta :
         model = Produit
@@ -16,11 +16,10 @@ class ProduitSerializer(serializers.ModelSerializer):
             "name", 
             "price",
             "description", 
-            "categorie_id",
+            "vendeur",
+            "vendeur_nom",
             "categorie",
-            "etiquette_id",
             "etiquettes",
-            "vendeurs",
             ]
         
     def get_categorie(self, obj):
@@ -31,6 +30,10 @@ class ProduitSerializer(serializers.ModelSerializer):
             'description': obj.categorie.description,
         }
     
+    def get_vendeur_nom(self, obj):
+        v = obj.vendeur
+        return f"{v.first_name} {v.last_name}" if v else None
+    
     def get_etiquettes(self, obj):
         return  [
             {
@@ -39,16 +42,5 @@ class ProduitSerializer(serializers.ModelSerializer):
                 'name': item.name,
                 'description': item.description,
             }
-        for item in obj.etiquette_id.all()
-        ]
-    
-    def get_vendeurs(self, obj):
-        return  [
-            {
-                'id': item.id,
-                "slug" : item.slug,
-                'last_name': item.last_name,
-                'first_name': item.first_name,
-            }
-        for item in obj.vendeur_id.all()
+        for item in obj.etiquette.all()
         ]

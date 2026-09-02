@@ -12,7 +12,6 @@ class PanierItemSerializer(serializers.ModelSerializer):
         model = PanierItem
         fields = [
             "id",
-            "slug",
             "product",
             "product_name",
             "product_price",
@@ -30,7 +29,6 @@ class PanierSerializer(serializers.ModelSerializer):
         model = Panier
         fields = [
             "id",
-            "slug",
             "profil",
             "session_key",
             "items",

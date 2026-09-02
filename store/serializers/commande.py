@@ -5,13 +5,12 @@ from store.models.ligne_de_commande import LigneCommande
 
 
 class LigneCommandeSerializer(serializers.ModelSerializer):
-    product_name = serializers.CharField(source="produit.name", read_only=True)
+    product_name = serializers.CharField(source="product.name", read_only=True)
 
     class Meta:
         model = LigneCommande
         fields = [
             "id",
-            "slug",
             "quantity",
             "order_id",
             "sub_total",
@@ -33,7 +32,6 @@ class CommandeSerializer(serializers.ModelSerializer):
         model = Commande
         fields = [
             "id",
-            "slug",
             "number",
             "statut",
             "lignes",
