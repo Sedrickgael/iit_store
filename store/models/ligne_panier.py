@@ -1,8 +1,7 @@
-# panier.py
+# ligne_panier.py
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from base.utils.models.standard_model import StandardModel
-import uuid
 
 
 class PanierItem(StandardModel):
@@ -33,6 +32,6 @@ class PanierItem(StandardModel):
     def sub_total(self):
         return self.quantity * self.product.price
  
-    def _str_(self):
+    def __str__(self):
         return f"{self.quantity}x {self.product} — {self.cart}"
     

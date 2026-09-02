@@ -1,4 +1,3 @@
-from django.contrib.auth.models import User
 from django.db import models
 from base.utils.models.standard_model import StandardModel
 from store.models.commande import Commande
@@ -10,7 +9,7 @@ class PaiementModel(StandardModel):
         verbose_name = 'Paiement'
         verbose_name_plural = 'Paiements'
  
-    profil = models.ForeignKey(User, on_delete=models.CASCADE, related_name='paiements', verbose_name=_("Profil utilisateur"))
+    profil = models.ForeignKey("customer.Profil", on_delete=models.CASCADE, related_name='paiements', verbose_name=_("Profil utilisateur"))
     commande = models.ForeignKey(Commande, on_delete=models.CASCADE, related_name='paiements', verbose_name=_("Commande"))
     montant = models.DecimalField(max_digits=10, decimal_places=2, default=0, verbose_name=_("montant"))
     statut = models.CharField(max_length=50, default='en_attente', verbose_name=_("Statut"))

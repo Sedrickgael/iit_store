@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -146,6 +146,8 @@ STATICFILES_DIRS = [
 ]
 
 AUTH_USER_MODEL = "customer.Profil"
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # cities light
 CITIES_LIGHT_TRANSLATION_LANGUAGES = ['fr', 'en']

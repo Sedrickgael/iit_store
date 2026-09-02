@@ -15,4 +15,4 @@ class Avis(StandardModel):
         unique_together = ('profil', 'product')  # un seul avis par client par produit
 
     def __str__(self):
-        return f"Avis de {self.profil.user.username} - {self.note}/5"
+        return f"Avis de {self.profil.username} - {self.note}/5"

@@ -24,14 +24,12 @@ class ProduitSerializer(serializers.ModelSerializer):
             ]
         
     def get_categorie(self, obj):
-        return  [
-            {
-                'id': obj.categorie_id.id,
-                "slug" : obj.categorie_id.slug,
-                'name': obj.categorie_id.name,
-                'description': obj.categorie_id.description,
-            }
-        ]
+        return {
+            'id': obj.categorie.id,
+            "slug": obj.categorie.slug,
+            'name': obj.categorie.name,
+            'description': obj.categorie.description,
+        }
     
     def get_etiquettes(self, obj):
         return  [

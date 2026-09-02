@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from iit_store.vendor.models.boutique import Vendeur
+from vendor.models.boutique import Vendeur
 
 
 class VendeurSerializer(serializers.ModelSerializer):
@@ -14,7 +14,6 @@ class VendeurSerializer(serializers.ModelSerializer):
             "last_name", 
             "first_name", 
             "email",
-            "password",
             "produit_id",
             "produits"
             ]

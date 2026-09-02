@@ -23,13 +23,11 @@ class LivraisonSerializer(serializers.ModelSerializer):
             ]
         
     def get_order(self, obj):
-        return  [
-            {
-                'id': item.id,
-                'slug' : item.slug,
-                'number': item.number,
-                'statut': item.statut,
-                'destination' : item.destination,
-            }
-        for item in obj.livraison_commande.all()
-        ]
+        order = obj.livraison_commande
+        return {
+            'id': order.id,
+            'slug': order.slug,
+            'number': order.number,
+            'statut': order.statut,
+            'destination': order.destination,
+        }

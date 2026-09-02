@@ -1,2 +1,1 @@
-from . import standard_model
-from . import User, ProfilBase
+from .standard_model import StandardModel

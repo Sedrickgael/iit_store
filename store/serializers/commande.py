@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from store.models.commande import Commande
-from store.models.commande import LigneCommande
+from store.models.ligne_de_commande import LigneCommande
 
 
 
