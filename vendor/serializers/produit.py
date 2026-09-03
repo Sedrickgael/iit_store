@@ -22,6 +22,8 @@ class ProduitSerializer(serializers.ModelSerializer):
         ]
 
     def get_categorie(self, obj):
+        if not obj.categorie:
+            return None
         return {                        
             'id': obj.categorie.id,      
             'slug': obj.categorie.slug,
@@ -30,6 +32,11 @@ class ProduitSerializer(serializers.ModelSerializer):
         }
 
     def get_etiquettes(self, obj):
+        # Sécurisation avec getattr au cas où le champ 'etiquette' diffère
+        etiquettes = getattr(obj, 'etiquette', None) or getattr(obj, 'etiquettes', None)
+        if not etiquettes:
+            return []
+            
         return [
             {
                 'id': item.id,
@@ -37,7 +44,7 @@ class ProduitSerializer(serializers.ModelSerializer):
                 'name': item.name,
                 'description': item.description,
             }
-            for item in obj.etiquette.all()  
+            for item in etiquettes.all()  
         ]
 
     def get_vendeurs(self, obj):
@@ -47,5 +54,5 @@ class ProduitSerializer(serializers.ModelSerializer):
                 'slug': boutique.slug,
                 'name': boutique.name,
             }
-            for boutique in obj.boutique_produits.all()  
+            for boutique in obj.vendeur_id.all()  # <-- Correction appliquée ici
         ]

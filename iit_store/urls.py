@@ -29,9 +29,9 @@ urlpatterns = [
     path('api/schema/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
 
     path('admin/', admin.site.urls),
-    path('customer/', include('customer.urls')),
-    path('vendor/', include('vendor.urls')),
-    path('store/', include('store.urls')),
+    path('api/customer/', include('customer.urls')),
+    path('api/vendor/', include('vendor.urls')),
+    path('api/store/', include('store.urls')),
     path("api-auth/", include("rest_framework.urls")),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
 + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -26,7 +26,7 @@ from vendor.viewsets.boutique import BoutiqueViewSet
 router = routers.DefaultRouter()
 router.register(r"categories", CategorieViewSet)
 router.register(r"etiquettes", EtiquetteViewSet)
-router.register(r"produts", ProduitViewSet)
+router.register(r"produits", ProduitViewSet)
 router.register(r"boutiques", BoutiqueViewSet)
 
 
