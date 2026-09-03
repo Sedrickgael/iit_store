@@ -14,6 +14,7 @@ class LivraisonSerializer(serializers.ModelSerializer):
             "order", 
             "status", 
             "country", 
+            "region",
             "order_id", 
             "shipped_at", 
             "expected_at",

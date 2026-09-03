@@ -5,6 +5,7 @@ from store.serializers.commande import CommandeSerializer
 from store.models.commande import Commande
 from store.models.ligne_de_commande import LigneCommande
 from store.models.mode_de_reglement import ModeDeReglement
+from store.models.panier import Panier
 from vendor.models.produit import Produit
 
 
@@ -58,6 +59,9 @@ class CommandeViewSet(viewsets.ModelViewSet):
                 quantity=max(1, quantity),
                 unit_price=produit.price,
             )
+
+        # Vide le panier de l'utilisateur après la commande
+        Panier.objects.filter(profil=request.user, active=True).delete()
 
         return Response(
             CommandeSerializer(commande).data,

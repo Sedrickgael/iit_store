@@ -18,6 +18,14 @@ class Vendeur(StandardModel):
     email = models.EmailField(verbose_name=_("Email"), max_length=254)
     password = models.CharField(max_length=128, verbose_name=_("Mot de passe"))
     slug = models.SlugField("Slug", blank=True)
+    profil = models.OneToOneField(
+        "customer.Profil",
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="boutique",
+        verbose_name=_("Compte vendeur"),
+    )
 
     def __str__(self):
        return f"{self.first_name} {self.last_name}"

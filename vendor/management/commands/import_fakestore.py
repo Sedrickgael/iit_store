@@ -7,6 +7,7 @@ Usage :
 Dépendances : aucune (utilise urllib de la bibliothèque standard).
 """
 import json
+import random
 import urllib.request
 
 from django.core.management.base import BaseCommand
@@ -91,6 +92,7 @@ class Command(BaseCommand):
                 defaults={
                     "description": str(item.get("description") or ""),
                     "price": price,
+                    "stock": random.randint(5, 100),
                     "image": str(item.get("image") or ""),
                     "slug": slugify(name)[:50] or "produit",
                     "vendeur": vendeur,

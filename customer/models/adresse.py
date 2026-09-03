@@ -1,6 +1,6 @@
 from django.db import models
 from base.utils.models.standard_model import StandardModel
-from cities_light.models import City, Country
+from cities_light.models import City, Country, Region
 from django.utils.translation import gettext_lazy as _
 
 
@@ -15,6 +15,7 @@ class Adresse(StandardModel):
     type = models.CharField(max_length=20, choices=TYPE_CHOICES, default='domicile', verbose_name=_("Type d'adresse"))
     street = models.CharField(max_length=255, verbose_name=_("Rue"))
     country = models.ForeignKey(Country, on_delete=models.SET_NULL, null=True, blank=True, verbose_name=_("Pays"))
+    region = models.ForeignKey(Region, on_delete=models.SET_NULL, null=True, blank=True, verbose_name=_("Département / Région"))
     city = models.ForeignKey(City, on_delete=models.SET_NULL, null=True, blank=True, verbose_name=_("Ville"))
     is_default = models.BooleanField(default=False)
 

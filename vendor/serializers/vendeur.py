@@ -5,6 +5,7 @@ from vendor.models.boutique import Vendeur
 class VendeurSerializer(serializers.ModelSerializer):
 
     produits = serializers.SerializerMethodField()
+    profil_id = serializers.SerializerMethodField()
 
     class Meta :
         model = Vendeur
@@ -14,8 +15,12 @@ class VendeurSerializer(serializers.ModelSerializer):
             "last_name", 
             "first_name", 
             "email",
+            "profil_id",
             "produits"
             ]
+        
+    def get_profil_id(self, obj):
+        return obj.profil_id if obj.profil else None
         
     def get_produits(self, obj):
         return  [

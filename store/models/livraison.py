@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _ # pour la traduction multilanguage
 from base.utils.models.standard_model import StandardModel
-from cities_light.models import City, Country
+from cities_light.models import City, Country, Region
 
 class Livraison(StandardModel):
 
@@ -24,7 +24,8 @@ class Livraison(StandardModel):
     address = models.TextField(verbose_name=_("Adresse de livraison"))
     # Localisation via cities_light
     country = models.ForeignKey(Country, on_delete=models.SET_NULL, null=True, blank=True, verbose_name=_("Pays"))
-    city = models.ForeignKey(City, on_delete=models.SET_NULL, null=True, blank=True,)
+    region = models.ForeignKey(Region, on_delete=models.SET_NULL, null=True, blank=True, verbose_name=_("Département / Région"))
+    city = models.ForeignKey(City, on_delete=models.SET_NULL, null=True, blank=True, verbose_name=_("Ville"))
     tracking_number = models.CharField( max_length=100, blank=True, verbose_name=_("Numéro de suivi"))
     shipped_at = models.DateTimeField(null=True, blank=True, verbose_name=_("Date d'expédition"))
     expected_at = models.DateTimeField(null=True, blank=True, verbose_name=_("Date de livraison prévue"))

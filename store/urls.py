@@ -19,6 +19,7 @@ from django.urls import path, include
 from rest_framework import routers,viewsets
 from store.viewsets.commande import CommandeViewSet
 from store.viewsets.favori import FavoriViewSet
+from store.viewsets.geo import GeoViewSet
 from store.viewsets.livraison import LivraisonViewSet
 from store.viewsets.mode_de_reglement import ModeDeReglementViewSet
 from store.viewsets.panier import PanierViewSet
@@ -31,6 +32,7 @@ router.register(r"favori", FavoriViewSet, basename="favori")
 router.register(r"livraison", LivraisonViewSet)
 router.register(r"modeReglement", ModeDeReglementViewSet)
 router.register(r"panier", PanierViewSet)
+router.register(r"geo", GeoViewSet, basename="geo")
 
 
 
