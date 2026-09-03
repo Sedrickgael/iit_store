@@ -1,0 +1,1 @@
+# Package des commandes de gestion Django (vendor.commands)

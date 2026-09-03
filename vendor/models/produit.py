@@ -17,6 +17,7 @@ class Produit(StandardModel):
     name = models.CharField(max_length=100, verbose_name=_("Nom"))
     description = models.TextField(verbose_name=_("Description"))
     price = models.DecimalField(max_digits=10, decimal_places=2,null=True, blank=True ,verbose_name=_("Prix du produit"))
+    image = models.URLField(blank=True, verbose_name=_("Image du produit"))
     slug = models.SlugField("Slug", blank=True)
     vendeur = models.ForeignKey("vendor.Vendeur", on_delete=models.RESTRICT, verbose_name=_("Vendeur"), related_name="vendeur_produits")
     categorie = models.ForeignKey("vendor.Categorie", on_delete=models.CASCADE, related_name="produit_ids", verbose_name=_("Catégorie"))

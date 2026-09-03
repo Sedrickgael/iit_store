@@ -1,4 +1,5 @@
 from .commande import Commande
+from .favori import Favori
 from .ligne_de_commande import LigneCommande
 from .ligne_panier import PanierItem
 from .livraison import Livraison

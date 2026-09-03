@@ -16,6 +16,7 @@ class ProduitSerializer(serializers.ModelSerializer):
             "name", 
             "price",
             "description", 
+            "image",
             "vendeur",
             "vendeur_nom",
             "categorie",

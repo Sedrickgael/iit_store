@@ -31,13 +31,20 @@ class InscriptionSerializer(serializers.ModelSerializer):
             "first_name",
             "last_name",
             "telephone",
+            "role",
         ]
+        extra_kwargs = {
+            "role": {"required": False, "allow_blank": True},
+        }
 
     def validate(self, attrs):
         if attrs["password"] != attrs["password_confirmation"]:
             raise serializers.ValidationError(
                 {"password_confirmation": "Les deux mots de passe ne correspondent pas."}
             )
+        # Rôle par défaut : client si non fourni
+        if not attrs.get("role"):
+            attrs["role"] = "client"
         return attrs
 
     def create(self, validated_data):

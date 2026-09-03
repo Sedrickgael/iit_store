@@ -6,6 +6,7 @@ from store.models.ligne_de_commande import LigneCommande
 
 class LigneCommandeSerializer(serializers.ModelSerializer):
     product_name = serializers.CharField(source="product.name", read_only=True)
+    product_image = serializers.CharField(source="product.image", read_only=True)
 
     class Meta:
         model = LigneCommande
@@ -17,6 +18,7 @@ class LigneCommandeSerializer(serializers.ModelSerializer):
             "product_id",
             "unit_price",
             "product_name",
+            "product_image",
         ]
 
 

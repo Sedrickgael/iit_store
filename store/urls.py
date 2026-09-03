@@ -18,6 +18,7 @@ Including another URLconf
 from django.urls import path, include
 from rest_framework import routers,viewsets
 from store.viewsets.commande import CommandeViewSet
+from store.viewsets.favori import FavoriViewSet
 from store.viewsets.livraison import LivraisonViewSet
 from store.viewsets.mode_de_reglement import ModeDeReglementViewSet
 from store.viewsets.panier import PanierViewSet
@@ -26,6 +27,7 @@ from store.viewsets.panier import PanierViewSet
 
 router = routers.DefaultRouter()
 router.register(r"commande", CommandeViewSet)
+router.register(r"favori", FavoriViewSet, basename="favori")
 router.register(r"livraison", LivraisonViewSet)
 router.register(r"modeReglement", ModeDeReglementViewSet)
 router.register(r"panier", PanierViewSet)
