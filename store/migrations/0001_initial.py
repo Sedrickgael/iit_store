@@ -9,7 +9,7 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('cities_light', '0014_alter_city_search_names'),
+        ('cities_light', '0013_alter_city_alternate_names_alter_city_country_and_more'),
         ('vendor', '0005_alter_produit_name'),
     ]
 

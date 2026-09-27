@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
 
     dependencies = [
         ('auth', '0012_alter_user_first_name_max_length'),
-        ('cities_light', '0014_alter_city_search_names'),
+        ('cities_light', '0013_alter_city_alternate_names_alter_city_country_and_more'),
         ('store', '0002_alter_panier_session_key'),
         ('vendor', '0006_rename_categorie_id_produit_categorie_and_more'),
     ]
