@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from backend.base.models.utils.standard_model import StandardModel
+from base.models.utils.standard_model import StandardModel
 
 #create your models here.
 class ProduitModel(StandardModel):

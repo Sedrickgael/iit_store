@@ -1,8 +1,8 @@
 from django.contrib import admin
 
-from backend.vendeur.models.categorie import Categorie
-from backend.vendeur.models.etiquette import Etiquette
-from backend.vendeur.models.produit import ProduitModel
+from vendeur.models.categorie import Categorie
+from vendeur.models.etiquette import Etiquette
+from vendeur.models.produit import ProduitModel
 
 
 @admin.register(Categorie)

@@ -1,10 +1,10 @@
 from django.contrib import admin
 
-from backend.customer.models.adresse import AdresseModel
-from backend.customer.models.avis import AvisModel
-from backend.customer.models.favoris import FavorisModel
-from backend.customer.models.moyen_paiement import MoyenPaiementModel
-from backend.customer.models.paiement import PaiementModel
+from customer.models.adresse import AdresseModel
+from customer.models.avis import AvisModel
+from customer.models.favoris import FavorisModel
+from customer.models.moyen_paiement import MoyenPaiementModel
+from customer.models.paiement import PaiementModel
 
 
 @admin.register(AdresseModel)

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from backend.store.models.commande import CommandeModel
+from store.models.commande import CommandeModel
 
 
 class CommandeSerializer(serializers.ModelSerializer):

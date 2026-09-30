@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from backend.store.models.mode_paiement import ModePaiementModel
+from store.models.mode_paiement import ModePaiementModel
 
 
 class ModePaiementSerializer(serializers.ModelSerializer):

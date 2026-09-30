@@ -1,8 +1,8 @@
 from django.contrib import admin
 
-from backend.store.models.commande import CommandeModel
-from backend.store.models.mode_paiement import ModePaiementModel
-from backend.store.models.panier import PanierModel
+from store.models.commande import CommandeModel
+from store.models.mode_paiement import ModePaiementModel
+from store.models.panier import PanierModel
 
 
 @admin.register(CommandeModel)

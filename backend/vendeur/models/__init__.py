@@ -1,3 +1,3 @@
-from ....vendeur.modelsimport categorie
-from ....vendeur.modelsimport etiquette
-from ....vendeur.modelsimport produit
+from .categorie import Categorie
+from .etiquette import Etiquette
+from .produit import ProduitModel

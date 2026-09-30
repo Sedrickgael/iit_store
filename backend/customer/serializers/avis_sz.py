@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from backend.customer.models.avis import AvisModel
+from customer.models.avis import AvisModel
 
 
 class AvisSerializer(serializers.ModelSerializer):

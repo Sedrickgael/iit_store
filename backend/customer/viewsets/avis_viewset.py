@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 
-from backend.customer.models.avis import AvisModel
-from backend.customer.serializers.avis_sz import AvisSerializer
+from customer.models.avis import AvisModel
+from customer.serializers.avis_sz import AvisSerializer
 
 
 class AvisViewSet(viewsets.ModelViewSet):

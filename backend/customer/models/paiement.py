@@ -1,8 +1,8 @@
 from django.contrib.auth.models import User
 from django.db import models
 
-from backend.base.models.utils.standard_model import StandardModel
-from backend.store.models.commande import CommandeModel
+from base.models.utils.standard_model import StandardModel
+from store.models.commande import CommandeModel
 
 
 class PaiementModel(StandardModel):

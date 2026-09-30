@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
-from backend.base.models.utils.standard_model import StandardModel
-from backend.vendeur.models.produit import ProduitModel
+from base.models.utils.standard_model import StandardModel
+from vendeur.models.produit import ProduitModel
 from django.utils.translation import gettext_lazy as _
 
 

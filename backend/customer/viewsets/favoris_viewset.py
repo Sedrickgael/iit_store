@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 
-from backend.customer.models.favoris import FavorisModel
-from backend.customer.serializers.favoris_sz import FavorisSerializer
+from customer.models.favoris import FavorisModel
+from customer.serializers.favoris_sz import FavorisSerializer
 
 
 class FavorisViewSet(viewsets.ModelViewSet):

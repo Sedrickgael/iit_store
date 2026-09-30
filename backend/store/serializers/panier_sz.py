@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from backend.store.models.panier import PanierModel
+from store.models.panier import PanierModel
 
 class PanierSerializer(serializers.ModelSerializer):
     class Meta:
