@@ -27,12 +27,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # mes bibliothèques
     'rest_framework',
+    
     #mes applications
-    'store.apps.StoreConfig',
-    'customer.apps.CustomerConfig',
-    'vendeur.apps.VendeurConfig',
     'base.apps.BaseConfig',
+    'api.apps.ApiConfig',
+    'accounts.apps.AccountsConfig',
+    'catalogues.apps.CataloguesConfig',
+    'vendeur.apps.VendeurConfig',
+    'reviews.apps.ReviewsConfig',
+    'payments.apps.PaymentsConfig',
+    'orders.apps.OrdersConfig',
+  
     #
     'cities_light',
 ]

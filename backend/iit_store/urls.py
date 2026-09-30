@@ -5,22 +5,12 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 
-# def home(request):
-#     html = """
-#     <h1>iit_store</h1>
-#     <ul>
-#         <li><a href="/store/">Store</a></li>
-#         <li><a href="/customer/">Customer</a></li>
-#         <li><a href="/vendeur/">Vendeur</a></li>
-#         <li><a href="/admin/">Admin</a></li>
-#     </ul>
-#     """
-#     return HttpResponse(html)
-
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('store/', include('store.urls')),
+    path('accounts/', include('accounts.urls')),
     path('vendeur/', include('vendeur.urls')),
-    path('customer/', include('customer.urls')),
+    path('catalogues/', include('catalogues.urls')),
+    path('orders/', include('orders.urls')),
+    path('reviews/', include('reviews.urls')),
+
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
