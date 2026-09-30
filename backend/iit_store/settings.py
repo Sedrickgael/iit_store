@@ -29,7 +29,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # mes bibliothèques
     'rest_framework',
-    
+    'cities_light',
+
     #mes applications
     'base.apps.BaseConfig',
     'api.apps.ApiConfig',
@@ -40,8 +41,7 @@ INSTALLED_APPS = [
     'payments.apps.PaymentsConfig',
     'orders.apps.OrdersConfig',
   
-    #
-    'cities_light',
+    
 ]
 
 MIDDLEWARE = [
