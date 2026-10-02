@@ -12,5 +12,7 @@ urlpatterns = [
     path('catalogues/', include('catalogues.urls')),
     path('orders/', include('orders.urls')),
     path('reviews/', include('reviews.urls')),
+    path('marketings/', include('marketings.urls')),
+    
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
