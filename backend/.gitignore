@@ -1,0 +1,71 @@
+# ============ Environnement virtuel ============
+.venv/
+venv/
+env/
+ENV/
+
+# ============ Python ============
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# ============ Django ============
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+/media/
+/staticfiles/
+/static_root/
+
+# ============ Variables d'environnement ============
+.env
+.env.local
+.env.*.local
+
+# ============ IDE / Éditeurs ============
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ============ Tests & couverture ============
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# ============ Divers ============
+*.pot
+*.pyc
+celerybeat-schedule
+.mypy_cache/
+.dmypy.json
+dmypy.json
