@@ -8,6 +8,11 @@ urlpatterns = [
     # Administration Django
     path("admin/", admin.site.urls),
 
+    # API Accounts
+    path('api/accounts/', include('accounts.urls')),
 
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
+        # API (JWT, etc.)
+        path('api/', include('api.urls')),
+
+    ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
   + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

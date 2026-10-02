@@ -1,0 +1,41 @@
+============================================
+ROUTES API - Projet iit_store
+============================================
+
+--- ROUTES PUBLIQUES (sans token) ---
+
+POST  /api/accounts/register/          Créer un compte (user + profil + client)
+POST  /api/token/                      Se connecter -> access + refresh
+POST  /api/token/refresh/              Rafraîchir le access expiré
+
+--- ROUTES PROTÉGÉES (token requis) ---
+Header: Authorization: Bearer <access_token>
+
+--- PROFILS ---
+GET    /api/accounts/profils/          Voir MON profil
+POST   /api/accounts/profils/          Créer MON profil
+GET    /api/accounts/profils/1/        Voir MON profil n°1
+PUT    /api/accounts/profils/1/        Modifier MON profil n°1 (tout)
+PATCH  /api/accounts/profils/1/        Modifier MON profil n°1 (partiel)
+DELETE /api/accounts/profils/1/        Supprimer MON profil n°1
+
+--- ADRESSES ---
+GET    /api/accounts/adresses/         Voir MES adresses
+POST   /api/accounts/adresses/         Créer une adresse
+GET    /api/accounts/adresses/1/       Voir MON adresse n°1
+PUT    /api/accounts/adresses/1/       Modifier MON adresse n°1
+PATCH  /api/accounts/adresses/1/       Modifier MON adresse n°1 (partiel)
+DELETE /api/accounts/adresses/1/       Supprimer MON adresse n°1
+
+--- CLIENTS (lecture seule) ---
+GET    /api/accounts/clients/          Voir MON client (user + profil + adresses)
+GET    /api/accounts/clients/1/        Voir MON client n°1
+
+============================================
+FLUX COMPLET À TESTER
+============================================
+1. POST /api/token/  {email, password}  -> tokens
+2. GET  /api/accounts/profils/  (Bearer) -> mon profil
+3. POST /api/accounts/adresses/ (Bearer) -> créer adresse
+4. GET  /api/accounts/clients/  (Bearer) -> mon client complet
+5. PATCH /api/accounts/profils/1/ (Bearer) -> modifier mon profil

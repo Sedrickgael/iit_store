@@ -18,7 +18,7 @@ class ProfilClient(StandardModel):
         verbose_name_plural = _("Profils Clients")
 
     
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name=_("Utilisateur"),related_name="profil_id")
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name=_("Utilisateur"), related_name="profil")
     nom = models.CharField(max_length=255, blank=True, null=True, verbose_name=_("Nom"))   
     prenom = models.CharField(max_length=255, blank=True, null=True, verbose_name=_("Prénom"))
     date_naissance = models.DateField(blank=True, null=True, verbose_name=_("Date de naissance"))

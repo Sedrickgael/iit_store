@@ -30,12 +30,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #
     'rest_framework',
-    # 'cities_light',
+        'rest_framework_simplejwt',
+        # 'cities_light',
     
-    #mes applications
-    'accounts.apps.AccountsConfig',
-    'base.apps.BaseConfig',
-]
+        #mes applications
+        'accounts.apps.AccountsConfig',
+        'base.apps.BaseConfig',
+        'api.apps.ApiConfig',
+    ]
 AUTH_USER_MODEL = 'accounts.User'  # Ou 'accounts.User' selon le nom exact de votre classe
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -131,6 +133,13 @@ MAILERS = {
     'default': {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
+}
+
+REST_FRAMEWORK = {
+    
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
 }
 
 

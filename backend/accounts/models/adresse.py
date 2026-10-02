@@ -13,7 +13,7 @@ class Adresse(StandardModel):
         verbose_name_plural = _("Adresses")
 
     
-    profil = models.ForeignKey('accounts.ProfilClient', on_delete=models.CASCADE, verbose_name=_("Profil Client"),related_name="adresse_id")    
+    profil = models.ForeignKey('accounts.ProfilClient', on_delete=models.CASCADE, verbose_name=_("Profil Client"), related_name="adresses")    
     street = models.CharField(max_length=255, blank=True, null=True, verbose_name=_("Rue"))
     city = models.CharField(max_length=255, blank=True, null=True, verbose_name=_("Ville"))
     state = models.CharField(max_length=255, blank=True, null=True, verbose_name=_("État"))
@@ -21,4 +21,4 @@ class Adresse(StandardModel):
     region = models.CharField(max_length=255, blank=True, null=True, verbose_name=_("Région"))
     
     def __str__(self):
-        return f"{self.type} - {self.street}, {self.city}"
+            return f"{self.street}, {self.city}"
