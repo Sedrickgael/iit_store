@@ -10,13 +10,11 @@ load_dotenv(BASE_DIR / '.env')
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY') or os.environ.get('SECRET_KEY') or 'dev-secret-key-change-me'
-
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY') 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 # Application definition
 
@@ -38,11 +36,13 @@ INSTALLED_APPS = [
     'catalogues.apps.CataloguesConfig',
     'vendeur.apps.VendeurConfig',
     'reviews.apps.ReviewsConfig',
-    'payments.apps.PaymentsConfig',
+    'finances.apps.FinancesConfig',
     'orders.apps.OrdersConfig',
-  
+    'marketings.apps.MarketingsConfig',
+    
     
 ]
+AUTH_USER_MODEL = 'accounts.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -133,8 +133,8 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 MEDIA_ROOT = BASE_DIR / "media"
 MEDIA_URL = '/media/'
-#configurer cities-light
 
+#configurer cities-light
 LANGUES_DE_TRANSLATION_LÉGÈRE_DES_VILLES = ['fr', 'en']
 CITIES_LIGHT_INCLUDE_CITY_TYPES = ['PPL', 'PPLA', 'PPLA2', 'PPLA3', 'PPLA4', 'PPLC', 'PPLF', 'PPLG', 'PPLL', 'PPLR', 'PPLS', 'STLMT',]
 # CITIES_LIGHT_INCLUDE_COUNTRIES = [
