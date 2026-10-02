@@ -1,0 +1,6 @@
+{
+  "name": "iit_store",
+  "description": "Page de connexion sécurisée pour la marketplace iit_store avec récupération de mot de passe et retour à l'accueil.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
