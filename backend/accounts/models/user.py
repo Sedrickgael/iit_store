@@ -1,23 +1,27 @@
-from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.db import models
 from django.utils.translation import gettext_lazy as _
-from base.models.utils.standard_model import StandardModel
 
-class Utilisateur(StandardModel, AbstractUser):
+
+class Utilisateur(AbstractUser):
     """
-    Class Utilisateur qui hérite de AbstractUser pour ajouter des champs supplémentaires.
+    Modèle utilisateur personnalisé avec connexion par Email.
+    
     """
     class Meta:
-        verbose_name = _("Utilisateur")
-        verbose_name_plural = _("Utilisateurs")
-
-        email = models.EmailField(
+            verbose_name = _("Utilisateur")
+            verbose_name_plural = _("Utilisateurs")
+    
+    email = models.EmailField(
         _("Adresse email"),
         unique=True,
-        )
-        username = None
-        USERNAME_FIELD = "email"
-        REQUIRED_FIELDS = []
+    )
 
-        def __str__(self):
-            return f"{self.email} - {self.first_name} - {self.last_name}"
+    # Identifiant de connexion principal
+    USERNAME_FIELD = "email"
+    # Username est demandé lors du createsuperuser pour le manager natif
+    REQUIRED_FIELDS = ["username"]
+
+
+    def __str__(self):
+       return f"{self.email} ({self.username})"
