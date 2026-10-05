@@ -30,13 +30,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #
     'rest_framework',
-        'rest_framework_simplejwt',
-        # 'cities_light',
+    'rest_framework_simplejwt',
+    'cities_light',
     
-        #mes applications
-        'accounts.apps.AccountsConfig',
-        'base.apps.BaseConfig',
-        'api.apps.ApiConfig',
+    #mes applications
+    'accounts.apps.AccountsConfig',
+    'base.apps.BaseConfig',
+    'api.apps.ApiConfig',
+    'catalogues.apps.CataloguesConfig',
     ]
 AUTH_USER_MODEL = 'accounts.User'  # Ou 'accounts.User' selon le nom exact de votre classe
 MIDDLEWARE = [

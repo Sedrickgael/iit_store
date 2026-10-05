@@ -32,10 +32,59 @@ GET    /api/accounts/clients/          Voir MON client (user + profil + adresses
 GET    /api/accounts/clients/1/        Voir MON client n°1
 
 ============================================
+FORMAT DES DONNÉES (body JSON à envoyer)
+============================================
+
+--- INSCRIPTION ---
+POST /api/accounts/register/
+{
+  "username": "jean",
+  "email": "jean@mail.com",
+  "password": "Motdepasse123!",
+  "password2": "Motdepasse123!"
+}
+
+--- CONNEXION ---
+POST /api/token/
+{
+  "email": "marie@mail.com",
+  "password": "Motdepasse123!"
+}
+-> réponse: {"access": "...", "refresh": "..."}
+
+--- RAFRAÎCHIR ---
+POST /api/token/refresh/
+{
+  "refresh": "<refresh_token>"
+}
+-> réponse: {"access": "..."}
+
+--- CRÉER UNE ADRESSE (format cities_light) ---
+POST /api/accounts/adresses/
+Header: Authorization: Bearer <access_token>
+{
+  "street": "Rue 12",
+  "city": "Abidjan",
+  "region": "Abidjan Autonomous District",
+  "country": "Ivory Coast"
+}
+ATTENTION: city/region/country doivent être les NOMS EXACTS de la base
+cities_light (ex: "Ivory Coast", pas "CI" ni "Côte d'Ivoire").
+
+--- MODIFIER MON PROFIL ---
+PATCH /api/accounts/profils/1/
+Header: Authorization: Bearer <access_token>
+{
+  "nom": "Kouassi",
+  "prenom": "Marie",
+  "telephone": "0708091011"
+}
+
+============================================
 FLUX COMPLET À TESTER
 ============================================
 1. POST /api/token/  {email, password}  -> tokens
 2. GET  /api/accounts/profils/  (Bearer) -> mon profil
-3. POST /api/accounts/adresses/ (Bearer) -> créer adresse
+3. POST /api/accounts/adresses/ (Bearer) -> créer adresse (format cities_light)
 4. GET  /api/accounts/clients/  (Bearer) -> mon client complet
 5. PATCH /api/accounts/profils/1/ (Bearer) -> modifier mon profil
