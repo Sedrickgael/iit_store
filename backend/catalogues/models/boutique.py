@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from base.models.utils.standard_model import StandardModel
-
+from django.conf import settings
 import uuid
 # Create your models here.
 
@@ -29,6 +29,7 @@ class Boutique(StandardModel):
         editable=False,
         db_index=True,
     )
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name=_("Utilisateur"), related_name="boutique")
     nom  = models.CharField(max_length=255, verbose_name=_("Nom de la Boutique"))
     slug = models.SlugField(max_length=255, unique=True, verbose_name=_("Slug de la Boutique"))
     email = models.EmailField(verbose_name=_("Email de la Boutique"))

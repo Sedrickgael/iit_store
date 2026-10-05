@@ -10,6 +10,9 @@ urlpatterns = [
 
     # API Accounts
     path('api/accounts/', include('accounts.urls')),
+    # API Catalogues
+    path('api/catalogues/', include('catalogues.urls')),
+    
 
         # API (JWT, etc.)
         path('api/', include('api.urls')),
