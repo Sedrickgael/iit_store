@@ -7,6 +7,7 @@ from commandes.models.panier import Panier
 from commandes.models.detail_panier import DetailsPanier
 from commandes.models.commande import Commande
 from commandes.models.detail_commande import DetailsCommande
+from commandes.models.mode_reglement import ModeDeReglement
 from commandes.serializers.panier_serializer import PanierSerializer
 from commandes.serializers.commande_serializer import CommandeSerializer
 
@@ -38,6 +39,18 @@ class PanierViewSet(viewsets.ModelViewSet):
         """
         panier = self.get_object()
 
+        # Lire le mode de règlement envoyé par le client (optionnel)
+        mode_reglement_id = request.data.get('mode_reglement')
+        mode_reglement = None
+        if mode_reglement_id:
+            try:
+                mode_reglement = ModeDeReglement.objects.get(id=mode_reglement_id)
+            except ModeDeReglement.DoesNotExist:
+                return Response(
+                    {"detail": "Mode de règlement invalide."},
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
+
         with transaction.atomic():
             # ① Vérifier que le panier n'est pas vide
             lignes = list(panier.details.all())
@@ -55,8 +68,8 @@ class PanierViewSet(viewsets.ModelViewSet):
                         status=status.HTTP_400_BAD_REQUEST,
                     )
 
-            # ③ Créer la commande
-            commande = Commande.objects.create(client=panier.client)
+            # ③ Créer la commande (avec le mode de règlement choisi)
+            commande = Commande.objects.create(client=panier.client, mode_reglement=mode_reglement)
 
             # ④ Copier les lignes du panier dans la commande (prix figé)
             for ligne in lignes:
