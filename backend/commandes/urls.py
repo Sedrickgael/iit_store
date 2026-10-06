@@ -1,16 +1,14 @@
-from django.urls import path, include 
+from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-# from commandes.views.categorie_viewset import CategorieViewSet
-# from commandes.views.produit_viewset import ProduitViewSet
-# from commandes.views.boutique_viewset import BoutiqueViewSet
+from commandes.views.commande_viewset import CommandeViewSet
+from commandes.views.panier_viewset import PanierViewSet
+from commandes.views.mode_reglement_viewset import ModeReglementViewSet
 
 
 router = DefaultRouter()
-router.register('commandes', CategorieViewSet, basename='commande')
-router.register('panier', ProduitViewSet, basename='panier')
-router.register('detailscommandes', BoutiqueViewSet, basename='detailscommande')
-router.register('detailspaniers', BoutiqueViewSet, basename='detailspanier')
-router.register('modereglements', BoutiqueViewSet, basename='modereglement')
+router.register('commandes', CommandeViewSet, basename='commande')
+router.register('paniers', PanierViewSet, basename='panier')
+router.register('modes-reglement', ModeReglementViewSet, basename='modereglement')
 
 
 urlpatterns = [

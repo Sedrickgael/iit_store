@@ -5,6 +5,7 @@ from django.core.exceptions import ValidationError as DjangoValidationError
 from django.db import transaction
 from accounts.models.profil_client import ProfilClient
 from accounts.models.client import Client
+from commandes.models.panier import Panier
 
 User = get_user_model()
 
@@ -55,5 +56,7 @@ class RegisterSerializer(serializers.ModelSerializer):
             # ② Le profil client, lié au user (OneToOne)
             profil = ProfilClient.objects.create(user=user)
             # ③ Le client, lié au profil (OneToOne)
-            Client.objects.create(profil=profil)
+            client = Client.objects.create(profil=profil)
+            # ④ Le panier, lié au client (OneToOne)
+            Panier.objects.create(client=client)
         return user
