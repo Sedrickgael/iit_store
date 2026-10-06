@@ -5,7 +5,7 @@ from catalogues.serializers.produit_serializer import ProduitSerializer
 
 class DetailsPanierSerializer(serializers.ModelSerializer):
     """
-    Serializer pour les détails du panier.
+    Serializer de LECTURE pour les détails du panier (produit en détail).
     """
     produit = ProduitSerializer(read_only=True)
 
@@ -18,3 +18,13 @@ class DetailsPanierSerializer(serializers.ModelSerializer):
         if value <= 0:
             raise serializers.ValidationError("La quantité doit être supérieure à zéro.")
         return value
+
+
+class DetailsPanierEcritureSerializer(serializers.ModelSerializer):
+    """
+    Serializer d'ÉCRITURE pour les détails du panier (produit par id).
+    """
+    class Meta:
+        model = DetailsPanier
+        fields = ['id', 'produit', 'quantity']
+        read_only_fields = ['id']
