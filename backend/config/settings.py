@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'base.apps.BaseConfig',
     'api.apps.ApiConfig',
     'catalogues.apps.CataloguesConfig',
+    'commandes.apps.CommandesConfig',
+    
     ]
 AUTH_USER_MODEL = 'accounts.User'  # Ou 'accounts.User' selon le nom exact de votre classe
 MIDDLEWARE = [
