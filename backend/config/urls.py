@@ -14,6 +14,8 @@ urlpatterns = [
     path('api/catalogues/', include('catalogues.urls')),
     # API Commandes
     path('api/commandes/', include('commandes.urls')),
+        # API Paiements
+        path('api/paiements/', include('paiements.urls')),
     
     # API (JWT, etc.)
     path('api/', include('api.urls')),

@@ -10,6 +10,7 @@ from commandes.models.detail_commande import DetailsCommande
 from commandes.models.mode_reglement import ModeDeReglement
 from commandes.serializers.panier_serializer import PanierSerializer
 from commandes.serializers.commande_serializer import CommandeSerializer
+from paiements.models.paiement import Paiement
 
 
 class PanierViewSet(viewsets.ModelViewSet):
@@ -71,7 +72,15 @@ class PanierViewSet(viewsets.ModelViewSet):
             # ③ Créer la commande (avec le mode de règlement choisi)
             commande = Commande.objects.create(client=panier.client, mode_reglement=mode_reglement)
 
-            # ④ Copier les lignes du panier dans la commande (prix figé)
+            # ④ Créer le paiement (en attente)
+            total = sum(ligne.produit.prix_effectif * ligne.quantity for ligne in lignes)
+            Paiement.objects.create(
+                commande=commande,
+                montant=total,
+                mode_reglement=mode_reglement,
+            )
+
+            # ⑤ Copier les lignes du panier dans la commande (prix figé)
             for ligne in lignes:
                 DetailsCommande.objects.create(
                     commande=commande,
@@ -79,11 +88,11 @@ class PanierViewSet(viewsets.ModelViewSet):
                     quantity=ligne.quantity,
                     price=ligne.produit.prix_effectif,
                 )
-                # ⑤ Décrémenter le stock
+                # ⑥ Décrémenter le stock
                 ligne.produit.quantite_stock -= ligne.quantity
                 ligne.produit.save()
 
-            # ⑥ Vider le panier
+            # ⑦ Vider le panier
             panier.details.all().delete()
 
         return Response(CommandeSerializer(commande).data, status=status.HTTP_201_CREATED)
